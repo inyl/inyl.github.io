@@ -1,0 +1,12 @@
+---
+layout: post
+category: devops
+title:  "DevOps와 자동화"
+---
+2016년 8월 19일날 사내 발표했었던 자료입니다.
+
+DevOps가 Dev + Ops를 하기 전에 수행하여야 하는 자동화에 관련된 내용을 담았습니다.
+
+pt를 보시는 방법은 아래 방향키로 넘기시다가 더 안넘어가면 우측 방향키로 챕터를 넘기셔서 보시면 됩니다 :)
+
+<iframe src="//slides.com/wonseok/devops/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
