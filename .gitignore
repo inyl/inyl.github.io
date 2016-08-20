@@ -45,3 +45,8 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+/.gitignore
+.sass-cache/
+Gemfile.lock
+_site/
+.idea
