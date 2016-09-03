@@ -26,7 +26,7 @@ mac os의 경우 ruby가 기본적으로 설치되어있어 바로 커맨드를 
 > Server address: http://127.0.0.1:4000/ <br/>
 > Server running... press ctrl-c to stop.<br/>
     
-와 같은 메시지가 뜨고 [](http://localhost:4000/) 으로 접속하면 휑한 페이지가 뜨는 것을 볼 수 있습니다.<br/>
+와 같은 메시지가 뜨고 [http://localhost:4040](http://localhost:4000/) 으로 접속하면 휑한 페이지가 뜨는 것을 볼 수 있습니다.<br/>
 사이트가 정상적으로 뜬다면 설치에 성공하셨습니다. 축하드립니다.<br/>
 이후에는 그냥 "jekyll s" 같이 간단하게 서버를 로컬에 기동할 수 있습니다.<br/>
 
@@ -43,12 +43,12 @@ url: "https://inyl.github.io/" # the base hostname & protocol for your site
 github_username:  #자신의 github id
 {% endhighlight %}
 적당히 변경할 만한 값은 이정도 인데<br/>
-이곳에 자신이 custom하게 변수를 설정할 수도 있습니다.
+이곳에 자신이 custom하게 변수를 설정할 수도 있습니다.<br/>
 
 ## 포스팅 작성
 포스팅은 폴더에 _posts폴더에 "yyyy-MM-dd-title.markdown" 파일 이름의 형식으로<br/>
 markdown파일형식을 만들면 포스팅이 된것입니다.<br/>
-markdown엔진은 기본으로 kramdown을 사용하는데 레퍼런스는 [](http://kramdown.gettalong.org/quickref.html)를 참조하시면 됩니다
+markdown엔진은 기본으로 kramdown을 사용하는데 레퍼런스는 [quickref.html](http://kramdown.gettalong.org/quickref.html)를 참조하시면 됩니다<br/>
         
 # Github Page 생성
 git 생성은 github에 로그인 한다음에 [New Repository메뉴](https://github.com/new) 에서 repository를 생성하시면 되는데<br/>
@@ -56,20 +56,19 @@ git 생성은 github에 로그인 한다음에 [New Repository메뉴](https://gi
 자신의 계정이 abcd라면 abcd.github.io로 설정하시면 됩니다.<br/>
 그다음에 로컬에 소스를 서버로 commit & pull하시면 됩니다.<br/>
 다른 문서의 경우 gh-pages 브랜치에서 작업하라고 명시되어 있는 문서도 있으나 저의 경우 master브랜치에다 pull하여도<br/>
-사이트가 동작하는 것을 확인할 수 있었습니다.
+사이트가 동작하는 것을 확인할 수 있었습니다.<br/>
 
 ##Page build failure 오류 발생경우
 pull까지는 성공했는데 github에서<br/>
-  
 > Your SCSS file `css/main.scss` has an error on line 40: File to import not found or unreadable: minima/base. Load path: _sass. For more information, see https://help.github.com/articles/page-build-failed-invalid-sass-or-scss.
     
-같은 오류가 났다고 메일이 올 수 있는데, (솔직히 짜증나서 여기서 그만두고 싶었...)<br/>
+같은 오류가 났다고 메일이 올 수 있는데, ~~(솔직히 짜증나서 여기서 그만두고 싶었...)~~<br/>
 jekyll에서 버전업을 하면서 테마를 gem으로 install하는 방식, <br/>
 즉 테마파일을 외부에서 다시 받아서 빌드하는 방식으로 변경하였는데<br/>
 github page에서는 이 기능을 지원하지 않아 오류가 발생하는 것입니다.<br>
     
 Jekyll을 최초 설치하면 기본 테마는 minima란 테마로 설정되어있고 해당 파일은<br/>
-[](https://github.com/jekyll/minima) 여기에 올라가 있습니다.
+[minima theme](https://github.com/jekyll/minima) 여기에 올라가 있습니다.
 여기의 파일을 받아 스킨 관련된 폴더(_sass, _layouts, _includes) 폴더를 카피해서 내 블로그 폴더로 복사한다음에 github에 pull하시면 됩니다.
 
 # 뽀나스 disqus댓글 설정
