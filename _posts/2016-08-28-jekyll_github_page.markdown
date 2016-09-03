@@ -58,7 +58,7 @@ git 생성은 github에 로그인 한다음에 [New Repository메뉴](https://gi
 다른 문서의 경우 gh-pages 브랜치에서 작업하라고 명시되어 있는 문서도 있으나 저의 경우 master브랜치에다 pull하여도<br/>
 사이트가 동작하는 것을 확인할 수 있었습니다.<br/>
 
-##Page build failure 오류 발생경우
+## Page build failure 오류 발생경우
 pull까지는 성공했는데 github에서<br/>
 > Your SCSS file `css/main.scss` has an error on line 40: File to import not found or unreadable: minima/base. Load path: _sass. For more information, see https://help.github.com/articles/page-build-failed-invalid-sass-or-scss.
     
