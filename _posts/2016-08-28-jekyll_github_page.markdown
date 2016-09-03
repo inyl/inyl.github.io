@@ -26,8 +26,9 @@ mac os의 경우 ruby가 기본적으로 설치되어있어 바로 커맨드를 
 > Server address: http://127.0.0.1:4000/ <br/>
 > Server running... press ctrl-c to stop.<br/>
     
-와 같은 메시지가 뜨고 [http://localhost:4040](http://localhost:4000/) 으로 접속하면 휑한 페이지가 뜨는 것을 볼 수 있습니다.<br/>
+와 같은 메시지가 뜨고 [http://localhost:4000](http://localhost:4000/) 으로 접속하면 휑한 페이지가 뜨는 것을 볼 수 있습니다.<br/>
 사이트가 정상적으로 뜬다면 설치에 성공하셨습니다. 축하드립니다.<br/>
+![hooray!]({{site.url}}assets/imgs/jekyll3.png)<br/>
 이후에는 그냥 `jekyll s` 같이 간단하게 서버를 로컬에 기동할 수 있습니다.<br/>
 
 ## config설정
@@ -50,6 +51,10 @@ github_username:  #자신의 github id
 2016년 9월1일 hello_world라는 포스팅을 한다면 `2016-09-01-hello_world.markdown` 파일이름으로 <br/>
 만들면 포스팅이 된것입니다. 자세한 것은 [사이트의 post doc](https://jekyllrb.com/docs/posts/)을 참조하시면 됩니다.<br/>
 markdown엔진은 기본으로 kramdown을 사용하는데 레퍼런스는 [quickref.html](http://kramdown.gettalong.org/quickref.html)를 참조하시면 됩니다<br/>
+
+#테마 세팅
+[jekyllthemes.org](http://jekyllthemes.org/)로 가시면 jekyll용으로<br/>
+설정된 많은 스킨을 찾으실 수 있습니다<br/>
         
 # Github Page 생성
 git 생성은 github에 로그인 한다음에 [New Repository메뉴](https://github.com/new) 에서 repository를 생성하시면 되는데<br/>
@@ -70,8 +75,9 @@ jekyll에서 버전업을 하면서 테마를 gem으로 install하는 방식, <b
 github page에서는 이 기능을 지원하지 않아 오류가 발생하는 것입니다.<br>
     
 Jekyll을 최초 설치하면 기본 테마는 minima란 테마로 설정되어있고 해당 파일은<br/>
-[minima theme](https://github.com/jekyll/minima) 여기에 올라가 있습니다.
-여기의 파일을 받아 스킨 관련된 폴더(_sass, _layouts, _includes) 폴더를 카피해서 내 블로그 폴더로 복사한다음에 github에 pull하시면 됩니다.
+[minima theme](https://github.com/jekyll/minima) 여기에 올라가 있습니다.<br/>
+여기의 파일을 받아 스킨 관련된 폴더(_sass, _layouts, _includes) 폴더를 카피해서<br/> 
+내 블로그 폴더로 복사한다음에 github에 pull하시면 됩니다.<br/>
 
 # 뽀나스 disqus댓글 설정
 jekyll이 DB를 이용하지 않아 설치형블로그나 서비스 블로그에 비해 정말 아무것도 없다시피 한데<br/>
@@ -83,7 +89,7 @@ jekyll이 DB를 이용하지 않아 설치형블로그나 서비스 블로그에
 생성이 끝났으면 disqus사이트가 메뉴가 아주 뒤죽박죽인데<br/>
 [이곳](https://disqus.com/admin/install/platforms/universalcode/)에 접속해서 나오는 스크립트를 복사해 내 템플릿에 붙여넣으면 됩니다.<br/>
 만일 기본인 minima 템플릿을 쓴다면 _layouts/post.html에 스크립트를 넣으면 되고<br/>
-다른 theme를 사용중이면 포스트 화면의 html에 코드를 넣으시면 됩니다.
+다른 theme를 사용중이면 포스트 화면의 html에 코드를 넣으시면 됩니다.<br/>
     
 근데 막상 해보면 서버 올렸을때 막 틀어지기도 하고 노력이 너무 많이 들어가네요.<br/>
 ~~(이 허접한 포스팅 하는데 대체 커밋을 몇번을 하는건지 어흐)~~<br/>
