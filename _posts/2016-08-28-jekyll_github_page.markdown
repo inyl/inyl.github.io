@@ -60,6 +60,7 @@ git 생성은 github에 로그인 한다음에 [New Repository메뉴](https://gi
 
 ## Page build failure 오류 발생경우
 pull까지는 성공했는데 github에서<br/>
+
 > Your SCSS file `css/main.scss` has an error on line 40: File to import not found or unreadable: minima/base. Load path: _sass. For more information, see https://help.github.com/articles/page-build-failed-invalid-sass-or-scss.
     
 같은 오류가 났다고 메일이 올 수 있는데, ~~(솔직히 짜증나서 여기서 그만두고 싶었...)~~<br/>
