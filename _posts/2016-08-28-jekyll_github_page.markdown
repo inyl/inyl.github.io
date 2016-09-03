@@ -42,10 +42,11 @@ comment : true
     
         등을 적절하게 설정합시다.<br/>
         이곳에 자신이 custom하게 변수를 설정할 수도 있습니다.
-    포스팅 작성
+    * 포스팅 작성
         포스팅은 폴더에 _posts폴더에 "yyyy-MM-dd-title.markdown" 파일 이름의 형식으로<br/>
-        markdown파일형식을 만들면 포스팅이 된것입니다.
-    
+        markdown파일형식을 만들면 포스팅이 된것입니다.<br/>
+        markdown엔진은 기본으로 kramdown을 사용하는데 레퍼런스는 [](http://kramdown.gettalong.org/quickref.html)를 참조하시면 됩니다
+        
 3. Github Page 생성
     git 생성은 github에 로그인 한다음에 [New Repository메뉴](https://github.com/new) 에서 repository를 생성하시면 되는데<br/>
     이때 주의해야할점은 repository의 이름을 {github계정}.github.io로 입력하셔야 한다는 것입니다<br/>
@@ -67,13 +68,16 @@ comment : true
         여기의 파일을 받아 스킨 관련된 폴더(_sass, _layouts, _includes) 폴더를 카피해서 내 블로그 폴더로 복사한다음에 github에 pull하시면 됩니다.
 
 4. 뽀나스 disqus댓글 설정
-    jekyll이 DB를 이용하지 않아 설치형블로그나 서비스 블로그에 비해 정말 아무것도 없다시피 한데</br>
+    jekyll이 DB를 이용하지 않아 설치형블로그나 서비스 블로그에 비해 정말 아무것도 없다시피 한데<br/>
     댓글은 disqus라는 서비스로 쉽게 붙일 수 있습니다.<br/>
     [](https://disqus.com) 사이트에 접속해서 회원가입을 마치고<br/> 
     [](https://disqus.com/admin/create/) 메뉴에서 댓글을 생성할 사이트 정보를 입력합니다.<br/>
-    ![]({{site.url}}assets/imgs/jekyll2.png)
+    ![]({{site.url}}assets/imgs/jekyll2.png) <br/>
     사이트 생성은 워낙 심플해서 website name에는 내 github page주소를 입력하고 카테고리는 적절히 선택한다음에 생성하시면 됩니다.<br/>
     생성이 끝났으면 disqus사이트가 메뉴가 아주 뒤죽박죽인데<br/>
     [](https://disqus.com/admin/install/platforms/universalcode/) 이곳에 접속해서 나오는 스크립트를 복사해 내 템플릿에 붙여넣으면 됩니다.<br/>
     만일 기본인 minima 템플릿을 쓴다면 _layouts/post.html에 스크립트를 넣으면 되고<br/>
     다른 theme를 사용중이면 포스트 화면의 html에 코드를 넣으시면 됩니다.
+    
+근데 막상 해보면 서버 올렸을때 막 틀어지기도 하고 노력이 너무 많이 들어가네요.<br/>
+진정한 Geek아니면 사용은 비추 드립니다.
