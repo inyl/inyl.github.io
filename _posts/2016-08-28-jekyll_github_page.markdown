@@ -13,7 +13,7 @@ comment : true
 ![](http://jjalbox.com/_data/jjalbox/2015/03/92_55169f19d5d14_1833.jpg)
 
 1. Jekyll 설치
-  * Jekyll 설정
+  + Jekyll 설정
     [Jekyll]() 설치는 매우 간단합니다.<br/>
     그냥 메인 사이트에 접속해서 메인에 보이는 코드 그대로 입력하시면 됩니다.<br/>
     ![install]({{site.url}}assets/imgs/jekyll1.png)<br/>
@@ -28,21 +28,21 @@ comment : true
     와 같은 메시지가 뜨고 [](http://localhost:4000/) 으로 접속하면 휑한 페이지가 뜨는 것을 볼 수 있습니다.<br/>
     사이트가 정상적으로 뜬다면 설치에 성공하셨습니다. 축하드립니다.
     이후에는 그냥 "jekyll s" 같이 간단하게 서버를 로컬에 기동할 수 있습니다.
-  * config설정
-    설정이 제대로 되었다면 폴더안에 _config.yml파일이 생성되었을텐데 사이트의 기본 설정값이 저장 되어있습니다.
+  + config설정
+    설정이 제대로 되었다면 폴더안에 _config.yml파일이 생성되었을텐데 사이트의 기본 설정값이 저장 되어있습니다.<br/>
+
     {% highlight yml %}
-      title: #사이트 명
-      email: #자신의 이메일
-      description: > # 자신의 사이트 설명. 주로 copyright
-        © 2016 inyl.
-      url: "https://inyl.github.io/" # the base hostname & protocol for your site
-      #twitter_username: jekyllrb
-      github_username:  #자신의 github id
+    title: #사이트 명
+    email: #자신의 이메일
+    description: > # 자신의 사이트 설명. 주로 copyright
+      © 2016 inyl.
+    url: "https://inyl.github.io/" # the base hostname & protocol for your site
+    #twitter_username: jekyllrb
+    github_username:  #자신의 github id
     {% endhighlight %}
-    
-    등을 적절하게 설정합시다.<br/>
+  + 적당히 변경할 만한 값은 이정도 인데<br/>
     이곳에 자신이 custom하게 변수를 설정할 수도 있습니다.
-  * 포스팅 작성
+  + 포스팅 작성
     포스팅은 폴더에 _posts폴더에 "yyyy-MM-dd-title.markdown" 파일 이름의 형식으로<br/>
     markdown파일형식을 만들면 포스팅이 된것입니다.<br/>
     markdown엔진은 기본으로 kramdown을 사용하는데 레퍼런스는 [](http://kramdown.gettalong.org/quickref.html)를 참조하시면 됩니다
