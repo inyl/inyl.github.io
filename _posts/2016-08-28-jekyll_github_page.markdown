@@ -13,6 +13,7 @@ comment : true
 ![](http://jjalbox.com/_data/jjalbox/2015/03/92_55169f19d5d14_1833.jpg)
 
 # Jekyll 설치
+
 ## Jekyll 설정
 [Jekyll](https://jekyllrb.com/) 설치는 매우 간단합니다.<br/>
 그냥 메인 사이트에 접속해서 메인에 보이는 코드 그대로 입력하시면 됩니다.<br/>
@@ -28,6 +29,7 @@ mac os의 경우 ruby가 기본적으로 설치되어있어 바로 커맨드를 
 와 같은 메시지가 뜨고 [](http://localhost:4000/) 으로 접속하면 휑한 페이지가 뜨는 것을 볼 수 있습니다.<br/>
 사이트가 정상적으로 뜬다면 설치에 성공하셨습니다. 축하드립니다.<br/>
 이후에는 그냥 "jekyll s" 같이 간단하게 서버를 로컬에 기동할 수 있습니다.<br/>
+
 ## config설정
 설정이 제대로 되었다면 폴더안에 _config.yml파일이 생성되었을텐데 사이트의 기본 설정값이 저장 되어있습니다.<br/>
 
@@ -42,6 +44,7 @@ github_username:  #자신의 github id
 {% endhighlight %}
 적당히 변경할 만한 값은 이정도 인데<br/>
 이곳에 자신이 custom하게 변수를 설정할 수도 있습니다.
+
 ## 포스팅 작성
 포스팅은 폴더에 _posts폴더에 "yyyy-MM-dd-title.markdown" 파일 이름의 형식으로<br/>
 markdown파일형식을 만들면 포스팅이 된것입니다.<br/>
@@ -54,6 +57,7 @@ git 생성은 github에 로그인 한다음에 [New Repository메뉴](https://gi
 그다음에 로컬에 소스를 서버로 commit & pull하시면 됩니다.<br/>
 다른 문서의 경우 gh-pages 브랜치에서 작업하라고 명시되어 있는 문서도 있으나 저의 경우 master브랜치에다 pull하여도<br/>
 사이트가 동작하는 것을 확인할 수 있었습니다.
+
 ##Page build failure 오류 발생경우
 pull까지는 성공했는데 github에서<br/>
   
