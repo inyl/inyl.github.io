@@ -70,12 +70,12 @@ comment : true
 4. 뽀나스 disqus댓글 설정
     jekyll이 DB를 이용하지 않아 설치형블로그나 서비스 블로그에 비해 정말 아무것도 없다시피 한데<br/>
     댓글은 disqus라는 서비스로 쉽게 붙일 수 있습니다.<br/>
-    [](https://disqus.com) 사이트에 접속해서 회원가입을 마치고<br/> 
-    [](https://disqus.com/admin/create/) 메뉴에서 댓글을 생성할 사이트 정보를 입력합니다.<br/>
+    [disqus](https://disqus.com) 사이트에 접속해서 회원가입을 마치고<br/> 
+    [create](https://disqus.com/admin/create/) 메뉴에서 댓글을 생성할 사이트 정보를 입력합니다.<br/>
     ![]({{site.url}}assets/imgs/jekyll2.png) <br/>
     사이트 생성은 워낙 심플해서 website name에는 내 github page주소를 입력하고 카테고리는 적절히 선택한다음에 생성하시면 됩니다.<br/>
     생성이 끝났으면 disqus사이트가 메뉴가 아주 뒤죽박죽인데<br/>
-    [](https://disqus.com/admin/install/platforms/universalcode/) 이곳에 접속해서 나오는 스크립트를 복사해 내 템플릿에 붙여넣으면 됩니다.<br/>
+    [이곳](https://disqus.com/admin/install/platforms/universalcode/)에 접속해서 나오는 스크립트를 복사해 내 템플릿에 붙여넣으면 됩니다.<br/>
     만일 기본인 minima 템플릿을 쓴다면 _layouts/post.html에 스크립트를 넣으면 되고<br/>
     다른 theme를 사용중이면 포스트 화면의 html에 코드를 넣으시면 됩니다.
     
