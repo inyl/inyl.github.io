@@ -30,7 +30,7 @@ comment : true
     이후에는 그냥 "jekyll s" 같이 간단하게 서버를 로컬에 기동할 수 있습니다.
   * config설정
     설정이 제대로 되었다면 폴더안에 _config.yml파일이 생성되었을텐데 사이트의 기본 설정값이 저장 되어있습니다.
-    ```yml
+    {% highlight yml %}
       title: #사이트 명
       email: #자신의 이메일
       description: > # 자신의 사이트 설명. 주로 copyright
@@ -38,7 +38,7 @@ comment : true
       url: "https://inyl.github.io/" # the base hostname & protocol for your site
       #twitter_username: jekyllrb
       github_username:  #자신의 github id
-    ```
+    {% endhighlight %}
     
     등을 적절하게 설정합시다.<br/>
     이곳에 자신이 custom하게 변수를 설정할 수도 있습니다.
