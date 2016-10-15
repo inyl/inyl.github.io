@@ -1,6 +1,7 @@
 ---
 layout: post
-categories: jekyll, github
+tags: [jekyll, github]
+category : blog
 title:  "jekyll로 github page 에 블로그 만들기"
 comment : true
 ---
