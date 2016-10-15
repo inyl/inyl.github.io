@@ -80,9 +80,10 @@ comment : true
 - 아까 dev환경에서 MariaDB를 선택했기 때문에 mariaDB가 필요하다. 이미 테스트용 디비가 있는 사람은 `application-dev.yml` 파일을 열어 datasource부분을 수정하고 필자는 개인PC에서 테스팅 중이기 때문에 docker로 mariaDB를 설치하겠다. `docker run --name mariadb -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mariadb` 명령어로 local PC간단하게 mariadb를 설치하였다. db세팅이 되었다면 프로젝트 명이 기본 디비명이 되니 CREATE DATABASE로 DB를 생성해주자. 
 
 - import project가 성공하면 `mvn spring-boot:run` 서버를 기동해보자. 서버 기동에 성공하면 다음과 같은 메시지를 볼 수 있다.
-> 	Application 'jhip_test' is running! Access URLs:
-> 	Local: 		http://localhost:8080
-> 	External: 	http://172.30.1.26:8080
+
+> Application 'jhip_test' is running! Access URLs:
+> Local: 		http://localhost:8080
+> External: 	http://172.30.1.26:8080
 
 - 다음과 같은 관리기가 뜨면 성공이다. 고생했다.
 <img src="{{site.url}}assets/imgs/JHipster/19.png" style="width:600px"/>
@@ -119,8 +120,8 @@ spring boot도 꽤 세게 튜닝되어있는 편이라 JHipster가 사용하는 
 (개인적으로는 이미 오픈소스 메타로 바뀐 개발진영이라 어쩔 수 없다 생각한다)<br/>
 그리고 spring boot자체도 좀 튜닝을 해놓은 상태라<br/> 
 이런 세팅을 아마 초급개발자라면 좀 다루기 어려울 수 있을것 같이 느껴진다.<br/>
-(Spring Boot 의 기본was는 embedded tomcat이나 JHipster는 undertow로 세팅되어있고<br/>
-DBCP도 hikari로 세팅되어있다. )<br/>
+(Spring Boot 의 기본was는 embedded tomcat이나 JHipster는 [undertow](http://undertow.io/) 로 세팅되어있고<br/>
+DBCP도 [hikari](https://github.com/brettwooldridge/HikariCP) 로 세팅되어있다. )<br/>
 그리고 프론트엔드 script들이 lazy loading 세팅이 안되어있는거 같은데 그점은 살짝 아쉬운 부분이기도 하다<br/>
 
 # 마치며
