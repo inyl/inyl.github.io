@@ -91,7 +91,7 @@ comment : true
 # 사이트
 자동생성된 사이트가 예상보다 퀄리티가 매우 좋은데, 한글화에 언어 스위칭은 물론이고 <br/>
 권한 체크해서 관리자 로 로그인을 해보면 (기본 id:admin, pw:admin) 여러 사이트 관리를 위한 메뉴가 존재한다<br/>
-계정 관리뿐만 아니라, JVM 상태 모니터링, http 모니터링, 캐시통계, 세션 모니터링, 로그인 이력, 로그확인 심지어 swagger로 REST API 문서까지 생성되어있는것을 확인 할 수 있다.<br/>
+계정 관리뿐만 아니라, JVM 상태 모니터링, http 모니터링, 캐시통계, 세션 모니터링, 로그인 이력, 로그확인 심지어 [swagger](http://swagger.io/) 로 REST API 문서까지 생성되어있는것을 확인 할 수 있다.<br/>
 microservice모드에서는 netfix oss기반의 spring cloud application관리까지 가능하다.
 <img src="{{site.url}}assets/imgs/JHipster/20.png" style="width:600px"/>
 <br/><br/>
