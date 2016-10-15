@@ -81,9 +81,9 @@ comment : true
 
 - import project가 성공하면 `mvn spring-boot:run` 서버를 기동해보자. 서버 기동에 성공하면 다음과 같은 메시지를 볼 수 있다.
 
-> Application 'jhip_test' is running! Access URLs:
-> Local: 		http://localhost:8080
-> External: 	http://172.30.1.26:8080
+> Application 'jhip_test' is running! Access URLs: <br/>
+> Local: 		http://localhost:8080 <br/>
+> External: 	http://172.30.1.26:8080 <br/>
 
 - 다음과 같은 관리기가 뜨면 성공이다. 고생했다.
 <img src="{{site.url}}assets/imgs/JHipster/19.png" style="width:600px"/>
