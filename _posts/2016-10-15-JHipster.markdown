@@ -1,0 +1,130 @@
+---
+layout: post
+categories: Spring Boot, angular, jHipster
+title:  "JHipster로 빠르게 Spring Boot, Angular Project 세팅하기"
+comment : true
+---
+[JHipster](https://jhipster.github.io/)란 node 진영의 [yeoman](http://yeoman.io/)을 이용해서<br/>
+매우 빠르고 간단하게 Spring boot와 angular 어플리케이션을 생성할 수 있는 프로젝트이다.<br/>
+일반적인 웹 어플리케이션 뿐만 아니라 요즘 트렌드인 microservice 어플리케이션도 매우 빠르고<br/>
+쉽게 생성할 수 있다.
+
+기존에 server side영역을 generate해주거나 frontend영역을 generate해주는 서비스는 많았으나<br/>
+이둘을 한꺼번에 생성시켜주는 프로젝트는 신선하여 이렇게 포스팅을 해본다 <br/>
+
+# 준비사항
+설치하기 앞서 JHister에서 지원하는 모듈이 굉장히 방대하기 때문에 선행기술에 대해 어느정도 이해를하고 사용하는것이 좋다<br/>
+사이트 메인에 걸려있는 이미지에 대해서 적어도 어떤 기술이고 왜 사용하는지는 알고 넘어가는것을 권장한다.<br/>
+
+<img src="{{site.url}}assets/imgs/JHipster/jhipster1.png" style="width:600px;"/>
+<img src="{{site.url}}assets/imgs/JHipster/jhipster2.png" style="width:600px;"/>
+
+# 설치
+우선 자바와 nodejs가 먼저 설치가 되어있어야 한다.<br/>
+요리프로그램에서 냉장고에 항상 이미 준비된 음식이 있듯이 이정도는 우리도 언제든지 준비가 되어있을것이니<br/>
+설치되어있다 생각하고 넘어가겠다.<br/>
+그리고 미리 git client, maven or gradle 그리고 npm으로 gulp, bower등이 설치 되어있어야 한다.
+
+- 우선 npm명령어로 JHipster를 설치한다. `sudo npm install -g generator-jhipster`<br/>
+포스팅을 작성하는 시점의 JHipster버전은 v3.9.1이다<br/>
+- 설치할때 Yeoman이 같이 dependency로 설치되는데 다음처럼 node버전이나 npm버전이 낮은걸 알려준다. 원할한 설치를 위해 node와 npm의 버전을 최신으로 유지하자
+<img src="{{site.url}}assets/imgs/JHipster/jhipster3.png" />
+- 설치가 완료했으면 자신의 프로젝트가 위치할 폴더를 생성하고 폴더 안으로 이동한다. 이 예제에서는 `mkdir jhip_test && cd jhip_test`로 생성하겠다.
+- `yo jhipster` 명령어를 실행한다. 다음과 같은 화면이 나오면 성공이다. 스샷에 익명의 통계를 원하는데 하려면 하고 말려면 말자.
+<img src="{{site.url}}assets/imgs/JHipster/jhipster4.png" />
+
+- 첫번째로 어떤 서비스를 만들것인지 설정한다. 예제는 심플하게 Mono app으로 선택하겠다.
+<img src="{{site.url}}assets/imgs/JHipster/jhipster5.png" />
+
+- 어플리케이션에 이름을 설정한다. 대충 적당히 하자
+<img src="{{site.url}}assets/imgs/JHipster/jhipster6.png" />
+
+- 자바 기본 패키지 명을 설정한다. 이것도 적당히 적당히
+<img src="{{site.url}}assets/imgs/JHipster/jhipster7.png" />
+
+- 권한을 어떤식으로 설정할 수 있는지 선택한다. http session, OAuth2, token방식중에 선택 가능하다. Spring security를 이용하는 방식이다. 예제에서는 Session Login방식으로 선택하겠다.
+<img src="{{site.url}}assets/imgs/JHipster/jhipster8.png" />
+
+- 다음은 사용할 데이터베이스 설정이다. 일반 RDB나 Nosql인 몽고나 카산드라를 선택할수도 있다. 예제에서는 일반 RDB를 선택하겠다.
+<img src="{{site.url}}assets/imgs/JHipster/jhipster9.png" />
+
+- 다음은 production 즉 운영레벨에서 사용할 DB를 선택한다. 예제에서는 MariaDB를 선택하겠다.
+<img src="{{site.url}}assets/imgs/JHipster/10.png" />
+
+- 다음은 개발레벨에서 사용할 디비를 선택한다. 굳이 RDB를 설치하지 않고 H2로 로컬디비를 이용하는것도 가능하다. 개인적으로 개발 운영환경은 같은게 좋다 생각하니 이거도 MariaDB를 선택하겠다.
+<img src="{{site.url}}assets/imgs/JHipster/11.png" />
+
+- 다음은 hibernate의 세컨드 캐시를 설정하는 부분이다. 싱글 서버모드인 ehcache와 distribute방식의 hazelCase를 선택할 수 있다. 예제에서는 ehCache로 설정하겠다.
+<img src="{{site.url}}assets/imgs/JHipster/12.png" />
+
+- 다음은 자바 백엔드 빌딩 시스템을 선택한다. 예제에서는 Maven 으로 하겠다.
+<img src="{{site.url}}assets/imgs/JHipster/13.png" />
+
+- 다음은 추가 설정이다. 최근 개발에 중요한 요소인 소셜로그인, 검색엔진, 세션 클러스터링, 웹소켓 등을 설정할 수 있다. 스페이스로 복수선택이 가능하다. 이런것들은 솔직히 처음 세팅하려면 매우 귀찮은데 선택 한번으로 이런 설정을 손쉽게 할 수 있다. 예제에서는 스킵하겠다.
+<img src="{{site.url}}assets/imgs/JHipster/14.png" />
+
+- SaSS를 이용해서 스타일시트를 생성할것인지 선택한다. 빌드하는 스크립트까지 자동 생성해주기 때문에 해도 나쁠것이 없다.
+<img src="{{site.url}}assets/imgs/JHipster/15.png" />
+
+- 다국어 지원을 설정하는 부분이다. 놀랍게도 한국어도 지원해준다. 예제에서는 한국어와 영어를 선택하겠다.
+<img src="{{site.url}}assets/imgs/JHipster/16.png" />
+
+- 테스팅 프레임워크를 선택한다. 예제에서는 개틀링을 선택하겠다. 
+<img src="{{site.url}}assets/imgs/JHipster/17.png" />
+
+- 자 모든 선택이 끝났다. `Server app generated successfully. Client app generated successfully.` 요 두메지시가 보이면 정상적으로 성공한것이다. 만일 실패하였다면 선행 설치에 필요한것중 무엇이 빠졌을 가능성이 높으니 에러메시지를 유심히 봐보자.
+
+- 그럼 이제 프로젝트를 자신이 개발에 사용하는 IDE (Eclipse, STS, Intellij등)에다가 import하자. Maven Proejct로 만들었기 때문에 Maven Project로 import 하면 된다.
+<img src="{{site.url}}assets/imgs/JHipster/18.png" />
+
+- 아까 dev환경에서 MariaDB를 선택했기 때문에 mariaDB가 필요하다. 이미 테스트용 디비가 있는 사람은 `application-dev.yml` 파일을 열어 datasource부분을 수정하고 필자는 개인PC에서 테스팅 중이기 때문에 docker로 mariaDB를 설치하겠다. `docker run --name mariadb -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mariadb` 명령어로 local PC간단하게 mariadb를 설치하였다. db세팅이 되었다면 프로젝트 명이 기본 디비명이 되니 CREATE DATABASE로 DB를 생성해주자. 
+
+- import project가 성공하면 `mvn spring-boot:run` 서버를 기동해보자. 서버 기동에 성공하면 다음과 같은 메시지를 볼 수 있다.
+> 	Application 'jhip_test' is running! Access URLs:
+> 	Local: 		http://localhost:8080
+> 	External: 	http://172.30.1.26:8080
+
+- 다음과 같은 관리기가 뜨면 성공이다. 고생했다.
+<img src="{{site.url}}assets/imgs/JHipster/19.png" style="width:600px"/>
+
+# 사이트
+자동생성된 사이트가 예상보다 퀄리티가 매우 좋은데, 한글화에 언어 스위칭은 물론이고 <br/>
+권한 체크해서 관리자 로 로그인을 해보면 (기본 id:admin, pw:admin) 여러 사이트 관리를 위한 메뉴가 존재한다<br/>
+계정 관리뿐만 아니라, JVM 상태 모니터링, http 모니터링, 캐시통계, 세션 모니터링, 로그인 이력, 로그확인 심지어 swagger로 REST API 문서까지 생성되어있는것을 확인 할 수 있다.<br/>
+microservice모드에서는 netfix oss기반의 spring cloud application관리까지 가능하다.
+<img src="{{site.url}}assets/imgs/JHipster/20.png" style="width:600px"/>
+<br/><br/>
+<img src="{{site.url}}assets/imgs/JHipster/21.png" style="width:600px"/>
+<br/><br/>
+<img src="{{site.url}}assets/imgs/JHipster/22.png" style="width:600px"/>
+
+
+# 프로젝트 구조
+보통 이런 자동 생성되는 서비스들은 인간미(?) 없이 보기 힘든 코드들로 만들어지는 케이스가 많은데, 구조도 그렇고 코드도 꽤 깔끔하다.<br/>
+설정 파일도 매우 깔끔하며, production레벨에 쓸 수 있게 application.config도 미리 나누어져있다<br/>
+<img src="{{site.url}}assets/imgs/JHipster/23.png" />
+
+그리고 위에서 선택하지 않았지만 기본적으로 세팅 되어있는것이 굉장히 많다. <br/>
+liquibase로 DB이력 관리도 가능하게 미리 세팅되어있으며<br/>
+unit test코드도 미리 작성되어있으며, <br/>
+로그를 ELK stack에 쌓을 수 있게 미리 세팅도 되어있다(config만 enable로 바꾸면됨)<br/>
+계정생성 메일 전송이라던지, Jenkins에 관련된 세팅도 있으며 다 설명하기가 어려울 정도의 많은 기능들이 추가되어있다<br/>
+(심지어 너무 친절하게도 README.md까지 미리 만들어져 있다.)<br/>
+그리고 기본으로 생성되어있는 메뉴들이 많기 때문에 해당 코드들을 예제로 삼아서 기능 및 메뉴를 추가하기도 원할하다<br/>
+
+# 약간의 단점?
+JHipster의 러닝커브가 높다고 생각되지는 않으나, 사용하는 기술이 매우 많으며<br/>
+spring boot도 꽤 세게 튜닝되어있는 편이라 JHipster가 사용하는 기술에 대해서<br/>
+러닝커브가 좀 있을거라고 생각된다. <br/>
+(개인적으로는 이미 오픈소스 메타로 바뀐 개발진영이라 어쩔 수 없다 생각한다)<br/>
+그리고 spring boot자체도 좀 튜닝을 해놓은 상태라<br/> 
+이런 세팅을 아마 초급개발자라면 좀 다루기 어려울 수 있을것 같이 느껴진다.<br/>
+(Spring Boot 의 기본was는 embedded tomcat이나 JHipster는 undertow로 세팅되어있고<br/>
+DBCP도 hikari로 세팅되어있다. )<br/>
+그리고 프론트엔드 script들이 lazy loading 세팅이 안되어있는거 같은데 그점은 살짝 아쉬운 부분이기도 하다<br/>
+
+# 마치며
+그래도 JHipster는 정말로 강력하게 설정하기 어렵거나 번거로운 부분을 매우 쉽고 빠르게 <br/>
+세팅이 가능하며 특히 Microservice로 서버가 분할되다보면 어쩔 수 없이 초반 세팅을<br/>
+자주 할 수 밖에 없는데 자바진영에서 프로젝트를 bootstrap하기 JHipster가 정말<br/>
+좋은 대안이 될것이라 예측해본다.
