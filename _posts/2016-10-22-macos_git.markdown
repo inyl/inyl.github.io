@@ -1,0 +1,15 @@
+---
+layout: post
+category: programming
+tags: [macos, git]
+title:  "MacOS에서 git이 동작 안할때"
+comment : true
+---
+MacOS에는 xcode때문에 기본적으로 git Client가 설치되어있어<br/>
+별도 설치없이 그냥 쓸 수 있으나. <br/>
+`Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo.`<br/>
+다음과 같은 메시지가 뜨면서 안될때가 있다.<br/>
+해결방법은 간단하다.<br/>
+
+Xcode를 실행시켜서 약관에 동의하면 바로 사용 가능하다.
+
