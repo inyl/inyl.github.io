@@ -16,12 +16,12 @@ comment : true
 이런 바보도 머신러닝 흉내라도 낼 수 있다는것을 알려드리기 위해!!<br/>
 이글을 쓰게 되었습니다<br/>
 
-주의
-- 이글은 매우 `**쌈마이**` 스럽습니다. 머신러닝에 조예가 있는 사람이 읽었다간 시력을 잃을 수 있습니다(으악 내눈!)<br/>
-- 알고리즘, 수학공식, 내부 구조 전부 생략합니다. 오직 설명과 scikit-learn 예제만 들어갑니다. 알고리즘이 필요하면 다른 많은 서적과 블로그 글들이 많습니다.<br/>
-- 어려운 용어나 번역투 다 생략합니다.<br/>
-- 저도 전문가가 아니라 적은 글이 맞지 않을 수 있으니, 틀린부분 지적은 언제나 환영합니다<br/>
-- 그래도 개발은 어느정도 해보신 분이여야 글을 알아보실 수 있습니다. 소스코드가 있기 때문이죠.<br/>
+주의 <br/>
+* 이글은 매우 `**쌈마이**` 스럽습니다. 머신러닝에 조예가 있는 사람이 읽었다간 시력을 잃을 수 있습니다(으악 내눈!)<br/>
+* 알고리즘, 수학공식, 내부 구조 전부 생략합니다. 오직 설명과 scikit-learn 예제만 들어갑니다. 알고리즘이 필요하면 다른 많은 서적과 블로그 글들이 많습니다.<br/>
+* 어려운 용어나 번역투 다 생략합니다.<br/>
+* 저도 전문가가 아니라 적은 글이 맞지 않을 수 있으니, 틀린부분 지적은 언제나 환영합니다<br/>
+* 그래도 개발은 어느정도 해보신 분이여야 글을 알아보실 수 있습니다. 소스코드가 있기 때문이죠.<br/>
 
 <hr>
 
@@ -40,11 +40,11 @@ comment : true
 
 # 언제 사용할 수 있을까
 간단하게 설명하면 <span style="color:brown">과거의 데이터</span>로 <span style="color:blue">미래를 예측</span>할때 쓸 수 있습니다. (색을 봐보세요)<br/>
-- 추천 시스템 (이 사용자는 <span style="color:brown">이런 데이터를 좋아했으니[과거]</span> 앞으로 이 사용자는 <span style="color:blue">저런 데이터[예측]</span>를 좋아할꺼야)<br/>
-- 스팸 필터 (<span style="color:brown">이런 데이터는 스팸메일[과거]</span>이 확실하니 앞으로 <span style="color:blue">저런 유형의 메일[예측]</span>은 자동으로 삭제해도 상관없다)<br/>
-- 사진 라벨분류(<span style="color:brown">이런 사진은 강아지 사진이었으니 [과거]</span> 이거랑 <span style="color:blue">비슷한 수치의 저 사진은 강아지 사진일것이다[예측]</span>)<br/>
-- 주식예측 (과거에 <span style="color:brown">특정 라인을 보이는 주식이 급등하였으니[과거]</span> 이와 <span style="color:blue">비슷한 유형의 저 주식은 급등[예측]</span> 할것이다)<br/>
-- 바둑(?) (과거에 <span style="color:brown">이런 기보에서 이런 수를 뒀을때 승리했으니[과거]</span> 나는 <span style="color:blue">이런수를 두면 이길 확률이 높아진다[예측]</span>)<br/>
+* 추천 시스템 (이 사용자는 <span style="color:brown">이런 데이터를 좋아했으니[과거]</span> 앞으로 이 사용자는 <span style="color:blue">저런 데이터[예측]</span>를 좋아할꺼야)<br/>
+* 스팸 필터 (<span style="color:brown">이런 데이터는 스팸메일[과거]</span>이 확실하니 앞으로 <span style="color:blue">저런 유형의 메일[예측]</span>은 자동으로 삭제해도 상관없다)<br/>
+* 사진 라벨분류(<span style="color:brown">이런 사진은 강아지 사진이었으니 [과거]</span> 이거랑 <span style="color:blue">비슷한 수치의 저 사진은 강아지 사진일것이다[예측]</span>)<br/>
+* 주식예측 (과거에 <span style="color:brown">특정 라인을 보이는 주식이 급등하였으니[과거]</span> 이와 <span style="color:blue">비슷한 유형의 저 주식은 급등[예측]</span> 할것이다)<br/>
+* 바둑(?) (과거에 <span style="color:brown">이런 기보에서 이런 수를 뒀을때 승리했으니[과거]</span> 나는 <span style="color:blue">이런수를 두면 이길 확률이 높아진다[예측]</span>)<br/>
 
 # 뭘 할 수 있을까
 큰 개념으로 주로 <u>회귀(Regression)</u>, <u>분류(Classifiction)</u>, <u>군집화(Clustering)</u>로 분류됩니다.<br/>
