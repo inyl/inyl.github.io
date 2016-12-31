@@ -28,7 +28,7 @@ comment : true
 # 머신러닝은 뭘까
 위키백과에서는 `인공 지능의 한 분야로, 컴퓨터가 학습할 수 있도록 하는 알고리즘과 기술을 개발하는 분야를 말한다` 라고 적혀있네요. <br/>
 힝 어렵당<br/>
-<img src="{{site.url}}assets/imgs/common/sad_pepe.jpg" width="200"/>
+<img src="{{site.url}}assets/imgs/common/sad_pepe.jpg" width="200"/><br/>
 매우 딱딱하니깐 간단히 풀겠습니다.<br/>
 
 현재의 머신러닝은 기본적으로 통계와 확률에 더 가깝습니다. <br/>
@@ -36,18 +36,18 @@ comment : true
 그래서 현재까진 모든 데이터를 수치화 하여야합니다.<br/> 
 이미지든 텍스트든 동영상이든 모두 개발자가 `숫자`로 변환해서 학습을 시켜야 합니다.<br/>
 그래서 주로 2차원, 3차원 숫자 배열을 많이 이용합니다.<br/>
-그래서 이런 데이터를 매우 쉽게 다룰 수 있는 python을 주로 애용합니다.
+그래서 이런 데이터를 매우 쉽게 다룰 수 있는 python을 주로 애용합니다.<br/>
 
 # 언제 사용할 수 있을까
-간단하게 설명하면 <span style="color:brown">과거의 데이터</span>로 <span style="color:blue">미래를 예측</span>할때 쓸 수 있습니다. (색을 봐보세요)
-- 추천 시스템 (이 사용자는 <span style="color:brown">이런 데이터를 좋아했으니[과거]</span> 앞으로 이 사용자는 <span style="color:blue">저런 데이터[예측]</span>를 좋아할꺼야)
-- 스팸 필터 (<span style="color:brown">이런 데이터는 스팸메일[과거]</span>이 확실하니 앞으로 <span style="color:blue">저런 유형의 메일[예측]</span>은 자동으로 삭제해도 상관없다)
-- 사진 라벨분류(<span style="color:brown">이런 사진은 강아지 사진이었으니 [과거]</span> 이거랑 <span style="color:blue">비슷한 수치의 저 사진은 강아지 사진일것이다[예측]</span>)
-- 주식예측 (과거에 <span style="color:brown">특정 라인을 보이는 주식이 급등하였으니[과거]</span> 이와 <span style="color:blue">비슷한 유형의 저 주식은 급등[예측]</span> 할것이다)
-- 바둑(?) (과거에 <span style="color:brown">이런 기보에서 이런 수를 뒀을때 승리했으니[과거]</span> 나는 <span style="color:blue">이런수를 두면 이길 확률이 높아진다[예측]</span>)
+간단하게 설명하면 <span style="color:brown">과거의 데이터</span>로 <span style="color:blue">미래를 예측</span>할때 쓸 수 있습니다. (색을 봐보세요)<br/>
+- 추천 시스템 (이 사용자는 <span style="color:brown">이런 데이터를 좋아했으니[과거]</span> 앞으로 이 사용자는 <span style="color:blue">저런 데이터[예측]</span>를 좋아할꺼야)<br/>
+- 스팸 필터 (<span style="color:brown">이런 데이터는 스팸메일[과거]</span>이 확실하니 앞으로 <span style="color:blue">저런 유형의 메일[예측]</span>은 자동으로 삭제해도 상관없다)<br/>
+- 사진 라벨분류(<span style="color:brown">이런 사진은 강아지 사진이었으니 [과거]</span> 이거랑 <span style="color:blue">비슷한 수치의 저 사진은 강아지 사진일것이다[예측]</span>)<br/>
+- 주식예측 (과거에 <span style="color:brown">특정 라인을 보이는 주식이 급등하였으니[과거]</span> 이와 <span style="color:blue">비슷한 유형의 저 주식은 급등[예측]</span> 할것이다)<br/>
+- 바둑(?) (과거에 <span style="color:brown">이런 기보에서 이런 수를 뒀을때 승리했으니[과거]</span> 나는 <span style="color:blue">이런수를 두면 이길 확률이 높아진다[예측]</span>)<br/>
 
 # 뭘 할 수 있을까
-큰 개념으로 주로 회귀(Regression), 분류(Classifiction), 군집화(Clustering)로 분류됩니다.<br/>
+큰 개념으로 주로 <u>회귀(Regression)</u>, <u>분류(Classifiction)</u>, <u>군집화(Clustering)</u>로 분류됩니다.<br/>
 
 간략하게 회귀는 주로 데이터의 평균 수치나 데이터의 예측등에 사용하며<br/>
 분류는 위에 설명한 사진 라벨분류나 MNIST처럼 손으로 쓴 글씨가 어떤 숫자인지 분류한다던지 할때 사용하며<br/>
