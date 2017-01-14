@@ -1,7 +1,7 @@
 ---
 layout: post
 category: seminar
-tags: [세미나]
+tags: [seminar]
 title:  "개발자를 위한 공감 세미나 2016"
 comment : true
 ---

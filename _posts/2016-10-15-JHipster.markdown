@@ -1,7 +1,7 @@
 ---
 layout: post
 category: programming
-tags: [Spring Boot, angular, jHipster]
+tags: [Spring_Boot, angular, jHipster]
 title:  "JHipster로 빠르게 Spring Boot, Angular Project 세팅하기"
 comment : true
 ---

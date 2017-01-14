@@ -38,6 +38,12 @@
                     
                 </ul>
             </div><!--//contact-container-->
+         <div id="post-meta" class="container-block">
+             <h3>Tags</h3>
+             {% for tag in site.tags %}
+             <p><i class="fa fa-cloud"></i> <a href="{{ site.baseurl }}/tags/{{ tag.name }}">{{tag.name}}</a></p>
+             {% endfor %}
 
+         </div>
             
         </div><!--//sidebar-wrapper-->

@@ -1,7 +1,7 @@
 ---
 layout: post
 category: machine_leaning
-tags: []
+tags: [machine_leaning]
 title:  "수포자를 위한 머신러닝 챕터1"
 comment : true
 ---
@@ -127,7 +127,7 @@ tensorflow 가이드에서도 이런식으로 작성되어있습니다.
 y = tf.nn.softmax(tf.matmul(x, W) + b)
 {% endhighlight%}
 
-자세히 보면 x라는 값과 W를 곱해준뒤(multiply) b라는 값을 더해준걸 y라는 변수에 넣는것을 알 수 있습니다<br/>
+자세히 보면 **x**라는 값과 **W**를 곱해준뒤(multiply) **b**라는 값을 더해준걸 **y**라는 변수에 넣는것을 알 수 있습니다<br/>
 tf.matmul (matrix multiply)은 array와 array를 곱하기 위해서 사용하는 tensorflow의 method라고 생각하시면 됩니다<br/>
 
 우리가 일반적으로 풀었던 수학문제같이 설명해보면<br/>

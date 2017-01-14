@@ -23,9 +23,22 @@ tagline: Web Developer
 #twitter_username: jekyllrb
 github_username:  inyl
 #highlighter: pygments
-name : inyl
-
+name : 송DEV
+paginate : 5
 # Build settings
 markdown: kramdown
 #theme: minima
 disqus: inyl
+#gems:
+#  - jekyll-paginate
+collections:
+  tags:
+    output: true
+    permalink: /tags/:path/
+
+defaults:
+  - scope:
+      path: ''
+      type: tags
+    values:
+      layout: tag

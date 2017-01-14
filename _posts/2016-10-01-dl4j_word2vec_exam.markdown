@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: [dl4j, word2vec, machine leaning]
+tags: [dl4j, word2vec, machine_leaning]
 category: machine_leaning
 title:  "Word2Vec으로 상품 연관 키워드 추출하기"
 comment : true
