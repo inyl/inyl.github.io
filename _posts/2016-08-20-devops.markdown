@@ -1,6 +1,7 @@
 ---
 layout: post
 category: devops
+tags: [devops]
 title:  "DevOps와 자동화"
 ---
 2016년 8월 19일날 사내 발표했었던 자료입니다.

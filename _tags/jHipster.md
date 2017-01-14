@@ -1,0 +1,4 @@
+---
+name: jHipster
+title: 'jHipster'
+---
