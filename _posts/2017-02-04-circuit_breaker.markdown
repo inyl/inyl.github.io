@@ -2,7 +2,7 @@
 layout: post
 category: programming
 tags: [circuit_breaker]
-title:  "Curcuit Breaker"
+title:  "Curcuit Breaker로 통신 failover 처리하기"
 comment : true
 ---
 
