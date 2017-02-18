@@ -1,0 +1,4 @@
+---
+name: solr
+title: 'Solr'
+---
