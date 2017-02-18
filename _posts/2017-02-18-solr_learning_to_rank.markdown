@@ -191,5 +191,8 @@ Time spent: 0:00:00.788
 feature가 적용되어 스코어에 변동이 생긴것을 확인할 수 있다.<br/>
 예제에서 검색된 두개의 문서는 카테고리필드(cat)에 book에 해당하는 것은 없어 isBook feature에는 스코어가 적용되지 않고 documentRecency필드로만 가중치가 적용된것으로 보여진다.<br/>
 
+계산을 해보자면 myModel.json에 originalScore의 weight는 0.5 즉 절반만 사용하고 신상 가중치(recency)는 1.0 즉 전체를 사용한다고 설정했으니 <br/>
+`(1.959392 * 0.5) + (0.020832442 * 1.0) = 1.0005285`가 되는 것이다.
+
 사실 글을 작성하는 지금 시점에 아직 적절한 예제가 없어 기능만 간단히 테스트 해볼 수 있는 정도이다. 자세한 사항은
 [Solr Wiki Learning To Rank Page](https://cwiki.apache.org/confluence/display/solr/Learning+To+Rank)를 참조 바라며 해당글은 기능 소개 정도로 정리하고 조만간 더 테스트를 한뒤 다시 글을 정리 해보는 시간을 가져야 할 것 같다.
