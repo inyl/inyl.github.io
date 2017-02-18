@@ -56,7 +56,7 @@ Time spent: 0:00:00.788
   "name": "isBook",
   "class": "org.apache.solr.ltr.feature.SolrFeature",
   "params": {
-    "fq": ["{!termsf=cat}book"]
+    "fq": ["{!terms f=cat}book"]
   }
 }, {
   "name": "originalScore",
