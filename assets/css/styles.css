@@ -314,3 +314,8 @@ p {
 .post-content li {
   line-height: 1.8;
 }
+
+.pagination {
+  width:100%;
+  text-align: center;
+}

@@ -24,7 +24,11 @@ tagline: Web Developer
 github_username:  inyl
 #highlighter: pygments
 name : 송DEV
-paginate : 5
+gems:
+  - jekyll-paginate
+
+paginate: 5
+paginate_path: '/page/:num/'
 # Build settings
 markdown: kramdown
 #theme: minima
@@ -42,3 +46,9 @@ defaults:
       type: tags
     values:
       layout: tag
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
