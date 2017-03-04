@@ -37,7 +37,7 @@ comment : true
 
 ## 기타
 - 자신이 일반적인 서비스 모델을 개발하려 한다면 [tensorflow models](https://github.com/tensorflow/models) 프로젝트를 살펴보자. Image Classification, AutoEncoder, Image Captioning, seq-2-seq 모델등 여러가지가 이미 잘 개발 되어있다. 문제는 프로젝트가 release tag를 따지 않아 실제 돌려보면 tensorflow 버전에 따른 무지막지한 에러들을 경험할 수 있으니 마음의 준비를 먼저 하자.
-- 그냥 tensorflow를 쓰는거보다 Keras, TF-slim, TFLearn등의 high-level API를 사용하는것이 좋아보인다. tensorflow코드가 워낙 boilerplate코드가 많아 짜놓으면 이게 python으로 짠건지 의구심이 들정도로 지저분 해지는데 Keras같은 high-level API를 이용하면 이런 코드들을 좀 줄일 수 있다.
+- 그냥 tensorflow를 쓰는거보다 Keras, TF-slim, TFLearn등의 high-level API를 사용하는것이 좋아보인다. tensorflow코드가 워낙 boilerplate코드가 많아 짜놓으면 이게 python으로 짠건지 의구심이 들정도로 지저분 해지는데 Keras같은 high-level API를 이용하면 이런 코드들을 좀 정리할 수 있다.
 - tensorflow의 패키지 관리는 정말 엉망이다. 영향력이 있는 프로그램 치고 이렇게 엉망진창인 경우도 드물거같다. 너무 갈아엎다보니 정리가 안돼 split_v2같은 괴랄한 네이밍을 가진 method도 생겨놨다. 오마이갓.. 소스가 엎어진다는건 기존에 나왔던 blog post나 관련 서적들의 코드가 다 무용지물 되는거기 때문에 일반적으론 이런 선택을 피하는데 얘네는 가차없다. 사용소스중에 tf.contrib 안의 소스가 있으면 알아서 마음의 준비를 하고 소스를 미리 백업 해놓자. (1.0이후에는 제발좀 덜 갈아엎길)
 - 지네들도 미안한지 1.0 마이그레이션 툴을 제공해준다. [https://www.tensorflow.org/install/migration](https://www.tensorflow.org/install/migration)
 - tensorboard를 적극 활용해야한다. tensorflow구조상 개발자에게 익숙한 breakpoint 디버깅이 불가능해 사실상 모니터링 할 수 있는 방법이 얘밖에 없어서 쓰기 싫어도 어쩔 수 없이써야한다. tensorflow를 써야한다면 tensorboard사용법을 필히 익히자.
