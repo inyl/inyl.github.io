@@ -1,7 +1,7 @@
 ---
 layout: post
 category: machine_learning
-tags: [tensorflow]
+tags: [tensorflow, machine_leaning]
 title:  "Tensorflow로 이미지 분류를 시도 하면서 느낀점"
 comment : true
 ---
