@@ -39,12 +39,12 @@
                 </ul>
             </div><!--//contact-container-->
          <div id="post-meta" class="container-block">
-             <h3>Tags</h3>
-             <ul class="list-unstyled interests-list">
+             <h3><i class="fa fa-cloud"></i>Tags</h3>
+
              {% for tag in site.tags %}
-             <li><i class="fa fa-cloud"></i> <a href="{{ site.baseurl }}/tags/{{ tag.name }}">{{tag.name}}</a></li>
+             <span class="label label-info" style="line-height: 2.5"><a href="{{ site.baseurl }}/tags/{{ tag.name }}">{{tag.name}}</a></span>
              {% endfor %}
-             </ul>
+
          </div>
          {% if page.layout == 'post'%}
          <div class="container-block" style="display: block; max-height: 550px;">
