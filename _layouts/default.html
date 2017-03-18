@@ -11,25 +11,27 @@ layout: compress
 
     <div class="wrapper">
         {% include sidebar.html %}
-        
+
         <div class="main-wrapper">
-           
+
            {{content}}
 
         </div><!--//main-body-->
 
     </div>
- 
+
 {% include footer.html %}
  
 {% include scripts.html %}
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 기본 -->
+{% if page.layout != 'post'%}
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-9779541833303007"
      data-ad-slot="5378799171"
      data-ad-format="auto"></ins>
+{% endif %}
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

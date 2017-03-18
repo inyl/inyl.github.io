@@ -40,10 +40,21 @@
             </div><!--//contact-container-->
          <div id="post-meta" class="container-block">
              <h3>Tags</h3>
+             <ul class="list-unstyled interests-list">
              {% for tag in site.tags %}
-             <p><i class="fa fa-cloud"></i> <a href="{{ site.baseurl }}/tags/{{ tag.name }}">{{tag.name}}</a></p>
+             <li><i class="fa fa-cloud"></i> <a href="{{ site.baseurl }}/tags/{{ tag.name }}">{{tag.name}}</a></li>
              {% endfor %}
-
+             </ul>
          </div>
+         {% if page.layout == 'post'%}
+         <div class="container-block" style="display: block; max-height: 550px;">
+
+             <ins class="adsbygoogle"
+                  style="display:block"
+                  data-ad-client="ca-pub-9779541833303007"
+                  data-ad-slot="5378799171"
+                  data-ad-format="auto"></ins>
+         </div>
+         {% endif %}
             
-        </div><!--//sidebar-wrapper-->
+    </div><!--//sidebar-wrapper-->
