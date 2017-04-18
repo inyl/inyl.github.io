@@ -1,0 +1,102 @@
+---
+layout: post
+category: programming
+tags: [scala]
+title:  "무자비한 튜플의 잔혹함"
+comment : true
+---
+scala는 자바보다 훨씬 더 많고 유용한 자료형을 기본으로 제공 해줍니다.
+그중 이번에 얘기 해볼것은 Tuple자료형인데요.
+최근의 concurrency한 개발을 강조하는 모던 랭귀지에서는 길이와 데이터가 immutable한 튜플의 속성 때문에 
+굉장히 유용한 자료형이라고 할 수 있습니다.
+
+근데 문제는 스칼라에서 이 자료형은 정말 끔찍하게도 <strong>`가독성`</strong>이 떨어진다는 것입니다.<br/>
+<img src="{{site.url}}assets/imgs/common/sad_pepe.jpg" width="150" /><br/>
+데이터의 억세스를 오로지 숫자로 하기 때문에 뭐가 들어있는지 직접 찍어보지 않는 이상 알 수 있는 방법이 없습니다.<br/> 
+tuple._1이 뭘까요? tuple._2는 무슨 데이터일까요? 네 모르겠네요. println이나 찍어봐야겠네요.<br/> 
+<img src="{{site.url}}assets/imgs/common/simuluk.jpg" /><br/>
+
+최근의 IDE는 정말 똑똑하게도 tuple안의 자료형을 마우스만 올리면 알려줍니다. <br/>
+하지만 tuple은 generic한 데이터가 아니기 때문에 
+_1은 String, _2는 Integer, _3은 Float, _4는 AnyRef blah blah..가 가능합니다. 즉 튜플에서 데이터를 뽑으려면
+순서대로 어떤 자료형의 데이터가 들어있는지 소스를 분석하지 않으면 안된다는 뜻입니다.
+
+그리고 tuple은 순서가 중요한 자료형입니다. 이것도 좀 문제가 될 수 있는데요
+가령 이런 튜플이 있다고 봅시다.
+```scala
+val date = (2017, 04, 18)
+println(date._1) // print year
+```
+날짜를 나타내는 튜플이고 한국에선 당연하게 (년,월,일) 순서로 날짜를 사용하니 별 문제가 되지는 않습니다.<br/>
+하지만 외국에서는 날짜표기를 반대로 하기 때문에 만일 다른 class 에서 이 date tuple을 (일,월,년)으로 선언 했다고 가정합시다.<br/> 
+그리고 그 사실을 모르는 먼저 작업을 하지 않은 다른 사람이 이 tuple을 가져다 쓰는거죠.
+```scala
+val date = (18, 04, 2017)
+print(date._1) // 난 년도를 찍고 싶었을 뿐이고... 찍힌건 날짜일 뿐이고
+```
+좀 극단적인 예긴 하지만 이경우에 튜플안에 들어있는 자료형이 모두 (int, int, int)기 때문에 예외나 unit test에 걸리지 않고 넘어갈 가능성이 매우 큽니다.<br/>
+특히 디비에서 받은 값을 귀찮아서 튜플로 매핑하고 있다면 순서가 더 뒤죽박죽이 될 가능성은 매우 크겠죠.<br/>
+
+그리고 더 심각하게 트리구조라 튜플안에 튜플이 들어있다면? 그리고 심지어 코드에서 tuple._2._1 로 억세스 하고 있다면??????<br/>
+그리고 튜플안에 튜플안에 튜플이 들어있다면??????? tuple._2._1._3 으로 억세스 하고 있다면???????????? <br/>
+#### `그리고 코드안에 주석이 한개도 없다면?????`
+<img src="{{site.url}}assets/imgs/common/wajang.jpg" /><br/>
+
+python 같은경우에는 namedtuple이 존재해서 tuple에도 이름을 지정할 수 있습니다.
+```python
+from collections import namedtuple
+Post = namedtuple("Post", "title content") # 첫번째는 title, 두번째는 content
+post = Post("hello world", "foo bar")
+post.title # 이름으로 접근
+>>> 'hello world'
+post[1] # 숫자로도 접근 가능
+>>> 'foo bar'
+```
+scala는 namedtuple은 존재하지 않습니다. 대신 다른 형태가 있기 때문인데 이건 잠시뒤에 얘기하고<br/>
+튜플은 위에 설명한대로 코드의 가독성을 떨어뜨리고 눈치채지 못하는 버그를 만들며 오직 쓰는 사람만 편한 자료형입니다.<br/>
+그럼 만일 이미 튜플로 만들어진 데이터가 있고 어쩔 수 없이 써야한다면 어떡할까요?<br/>
+가독성을 올리려면 최상단에서 상수로 선언하고 쓸 수 있습니다.
+```scala
+val contents = List((1, "hello"), (2, "world"), (3, "foo"))
+
+contents.map(t => {
+  val seq = t._1
+  val title = t._2
+  
+  println(title) // 요로코롬 쓰면 변수명으로 접근 가
+})
+```
+이것은 더 간결하게 한라인으로도 쓸 수 있습니다.
+```scala
+contents.map(t => {
+  val(seq, title) = t // 한라인에서 매핑도 가능
+  println(title) 
+})
+```
+변수명은 프로그래밍에서 정말 중요합니다. _2 대신 title이라는 이름으로 접근 했다는것 만으로도 
+그 데이터의 자료형과 어느정도 안에 들어있을 value의 성질(이름이 title이니 적당한 길이의 String이 들어있겠군!)을 유추 가능하기 때문입니다.<br/>
+
+튜플을 아주 극딜했는데 튜플은 그럼 정말 아무 쓸모없는 자료형인가?는 아닙니다.<br/>
+java는 method에서 1개의 데이터만 return이 가능한데 scala는 tuple로 여러개의 데이터를 한꺼번에 return 가능합니다.
+
+
+```scala
+def getArticle() {
+  (1, "title", "content") // 한꺼번에 3개의 데이터를 return 했다!!
+}
+```
+return되는 데이터가 가변형은 아니지만 return되는 개수가 보장되면 훨씬 개발이 쉬워집니다. 
+어떤 method에서 어떨땐 데이터가 2개 내려오고 어떨땐 3개 내려오면 당연히 개발이 하기 어려워지겠죠.<br/>
+무조건 3개가 내려옴! 이라고 명시되야 개발이 훨씬 명확해지겠죠.<br/>
+
+근데 사실 그냥 case class를 만드는것이 훨씬 좋긴 합니다. 그냥 귀찮아도 명시적이게 case class를 만드세요.<br/>
+case class는 namedtuple을 대체할 좋은 방식입니다.
+
+왜 진짜 별거 아닌 내용에 이렇게 긴 장문을 작성했냐면<br/>
+<img src="{{site.url}}assets/imgs/scala/tuple1.png" width="100%"/><br/>
+이런 코드를 발견해서... <br/>
+<img src="{{site.url}}assets/imgs/scala/tuple2.png" width="100%"/><br/>
+이런 코드를 발견해서..! (아 이런게 위아래로 수도 없이 있어 24인치 모니터에서 가로스크롤이 생긴다고!!!!!!!!!!!)<br/>
+
+음.음음..<br/>
+아무튼 모두들 코드 이쁘게 짜길 바랍니다...;
