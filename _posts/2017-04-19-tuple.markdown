@@ -63,7 +63,7 @@ contents.map(t => {
   val seq = t._1
   val title = t._2
   
-  println(title) // 요로코롬 쓰면 변수명으로 접근 가
+  println(title) // 요로코롬 쓰면 변수명으로 접근 가능
 })
 ```
 이것은 더 간결하게 한라인으로도 쓸 수 있습니다.
@@ -98,5 +98,5 @@ case class는 namedtuple을 대체할 좋은 방식입니다.
 <img src="{{site.url}}assets/imgs/scala/tuple2.png" width="100%"/><br/>
 이런 코드를 발견해서..! (아 이런게 위아래로 수도 없이 있어 24인치 모니터에서 가로스크롤이 생긴다고!!!!!!!!!!!)<br/>
 
-음.음음..<br/>
+음.음음..결론을 어떻게 내려야하지...<br/>
 아무튼 모두들 코드 이쁘게 짜길 바랍니다...;
