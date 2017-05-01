@@ -1,7 +1,7 @@
 ---
 layout: post
 category: search_engine
-tags: [search_engine]
+tags: [search_engine, elasticsearch]
 title:  "twitter korean text elasticsearch plugin을 공개합니다"
 comment : true
 ---
