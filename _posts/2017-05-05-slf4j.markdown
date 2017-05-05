@@ -1,0 +1,97 @@
+---
+layout: post
+category: programming
+tags: [java, logger]
+title:  "slf4j를 사용해야 하는 이유"
+comment : true
+---
+
+java진영에는 무수히 많은 로깅관련 모듈이 존재합니다. <br/>
+전통적인 apache commons logging, log4j. 그리고 최근 사용되고 있는 logback이나 log4j2등이 있는데요.
+어떤것을 사용하든 개인 취향이긴 하지만 가급적이면 현재까지도 계속 버전업이 되고 있는 `logback`이나 `log4j2`를
+사용하시라고 권해드리고 싶습니다. 특히 log4j같은 경우에는 앞으로 나오게될 Java9버전에서 호환 이슈로
+아예 동작하지 않는다는 카더라통신이 있습니다. 그러므로 가급적 지금이라도 log4j를 쓰는 코드가 존재하다면
+log4j2나 logback으로 교체하는 편이 좋습니다. 물론 이쪽을 쓰는게 퍼포먼스 측면에서도 우월합니다.
+
+그런데 말입니다.
+
+만일 log4j를 걷어내고 logback으로 교체하는 업무가 주어졌다고 가정 해봅니다.<br/>
+우리는 우선 maven이나 gradle에서 log4j의 dependency를 exclude하고 다시 logback을 추가를 합니다.
+
+와 IDE에 시뻘건 불이 수백개가 번쩍 거리네요!!
+
+요렇게 기존에 import했던 log4j의 수백개의 클래스가 뻘건줄을 내뿜기 시작했습니다.
+```java
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
+
+/// 생략 ///
+Logger log = Logger.getLogger(this.getClass());
+/// 생략 ///
+log.info("blah blah log")
+```
+하지만 이정도로는 당황하지 않습니다. 
+다행히도 우리의 Eclipse와 Intellij는 한꺼번에 파일 텍스트를 replace해줄 수 있는 기능이 있습니다. 
+아주 간단히 모든 import와 구문을 한꺼번에 바꿨습니다!!
+그리고 이제 commit을 해야겠죠...
+수백개의 파일이 한꺼번에 커밋이 됩니다... 심지어 다른 사람이 지금 작성중인 소스들까지 모두 교체가 됩니다.
+수십개의 내가 모르는 파일이 Conflict가 납니다. 하나하나 파일을 손보지 않으면 방법이 없습니다.
+이건 IDE도 어찌할 방법이 없습니다. 오늘도 야근이네요.
+
+이런 일이 발생하지 않기 위해서 slf4j를 써야합니다.
+[Simple Logging Facade for Java (SLF4J)](https://www.slf4j.org/index.html)는 java의 로깅 모듈들의 추상체라고 보시면 됩니다.
+
+사용방법은 간단합니다. 그냥 사용하고 있는 패키지 매니저에 추가만 해주면 됩니다.<br/>
+maven<br/>
+```xml
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.25</version>
+</dependency>
+```
+gradle<br/>
+```gradle
+compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+```
+그리고 사실 알게모르게 이미 프로젝트에 추가 되있을 가능성이 매우 큽니다.
+
+slf4j를 써야하는 이유는 간단하게 우리가 java 어플리케이션을 만들면서 왜 interface를 써야하는가와 이유가 동일합니다.
+우리는 실제 코드상에서는 slf4j의 interface코드를 사용하고 실제 로깅을 하는 구현체는 추가로 참조한 라이브러리에서 구현됩니다.
+
+
+그리고 실제로 slf4j를 쓴다면 다음과 같은 코드가 되겠지요.
+
+```java
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+/// 생략 ///
+Logger logger = LoggerFactory.getLogger(this.getClass());
+/// 생략 ///
+log.info("blah blah log")
+```
+이러면 만일 기존에 쓰고있던 log4j의 dependency를 제거한다 하더라도 수백개의 파일을 고치거나
+내가 잘 모르는 영역을 건드려야 된다거나 하는일이 발생하지 않습니다.
+log4j의 패키지나 class가 소스상에서 모두 사라졌으니깐요.
+
+그리고 내가 다른 로깅 라이브러리를 쓴다고 하면 그냥 기존의 참조를 지우고 새로운 로깅 모듈을 붙이기만 하면 됩니다.
+
+예를들면 내가 헤어드라이기를 쓰기위해 220v 어뎁터에서 플러그를 하나 뽑고 헤어드라이기 플러그를 꼽는것처럼
+내가 쓰고싶은 라이브러리를 플러그 꼽듯 로깅모듈을 slf4j에 가져다 꼽기만 하면 됩니다.
+
+그리고 왠만한 java의 logging 모듈들은 slf4j의 브릿지를 이미 제공해주고 있습니다.
+그 이야기는 내가 slf4j와 logback을 연결하기 위해서 추가로 무언가를 구현 할필요가 없다는 얘기입니다.
+이미 만들어진 브릿지를 [mvnrepository](http://mvnrepository.com/)에서 찾아서 넣기만 하면 됩니다.
+logback을 쓰고 싶으면 **slf4j-api**를 log4j2를 쓰고 싶다면 **log4j-slf4j-impl**과 **log4j-api**를 추가하면 됩니다.
+
+이미지처럼 어떤 모듈을 쓴다하더라도 slf4j로 접근할 수 있습니다.
+<img src="https://www.slf4j.org/images/concrete-bindings.png" width="100%"/>
+
+개발자는 어떤 상황에든 대처하고 확장될 수 있는 느슨하고 유연한 코드를 만들어야 합니다.
+따라서 하나의 라이브러리에 너무 종속적이 되버리는 코드는 가급적 작성하지 않는쪽이 좋습니다.
+그렇기에 어떤 라이브러리를 쓰든 동일하게 동작하는 코드를 만들어야하고 그것이 slf4j를 써야하는 이유입니다.
+
+근데 사실 이글을 작성하지 않더라도 이미 자바 개발자라면 다 아는 내용이고 거의 slf4j를 쓰고 있었을거 같긴한데
+갑자기 이 얘기를 꺼내는 이유는 우리가 자주 사용하는 오픈소스에도 위와 같은 문제를 보이는 [코드](https://github.com/apache/hadoop/blob/f67237cbe7bc48a1b9088e990800b37529f1db2a/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-core/src/main/java/org/apache/hadoop/mapred/TaskLogAppender.java#L26)를 발견해서...
+
+(log4j를 exclude하려고 하는데 hadoop에서 에러가나서 결국 Exclude는 못하고 원치않게 어플리케이션 한개에 두개의 로깅 모듈이 붙어버렸습니다. 로깅은 한개만 두고 싶은데.)
