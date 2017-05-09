@@ -1,0 +1,87 @@
+---
+layout: post
+category: programming
+tags: [database, nosql]
+title:  "Database의 종류"
+comment : true
+---
+NoSql이 생겨나면서 우리는 RDB보다 더 많은 선택을 할 수 있습니다. 
+각 저장소의 장단점을 알고 상황에 맞는 선택을 하면 한결 편한 개발과 견고한 어플리케이션을 개발하는데 도움이 될것입니다.
+그럼 Database의 종류와 장단점을 간략하게 알아보도록 하겠습니다.
+
+## Relation DBMS
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Relational_Model.svg/280px-Relational_Model.svg.png"/><br/>
+현재까지도 가장 많이 사용되며 가장 일반적인 relation이 강조된 데이터베이스입니다.
+테이블이 스키마는 고정된 유형과 고정된 속성에 의해 관리가 됩니다.
+record는 테이블에 저장되며 각 테이블을 Relation의 정보로 Join, Union등등 많은 연산이 가능합니다.
+또한 트랜잭션으로 데이터를 관리하기 때문에 제일 안전하게 데이터를 보관할 수 있는 시스템입니다.
+하지만 스키마 변경이 어려우며 (상대적으로)느린속도, 확장성등의 문제 때문에 다른 NoSql들이 많이 생겨난 상태입니다.
+
+
+대표DB : Oracle, MS-SQL, MySql, PostgresSQL
+
+## Document Store
+
+<img src="http://static.couchbaseinc.hosting.ca.onehippo.com/images/server/3.x/20170420-170703/relational_vs_doc1.png" width="100%"/><br/>
+Document-oriented database라고 불리가도 하며 테이블 스키마가 정적이지 않고 유동적입니다.
+이것은 즉 레코드 마다 다른 스키마를 가질 수 있다는 뜻입니다.
+일반적으로 JSON같은 document를 이용해 record를 저장합니다.
+그렇기 때문에 RDB랑 달리 트리형 구조를 저장하거나 찾는데 용이합니다.
+
+
+대표DB : [MongoDB](https://www.mongodb.com/), Amazone DynamoDB, [CouchBase](https://www.couchbase.com/)
+
+## Wide Column Store
+
+<img src="http://database.guide/wp-content/uploads/2016/06/wide_column_store_database_example_row-1.png"/><br/>
+Wide Column Store는 많은 수의 동적 열을 보유할 수 있습니다.
+record row마다 Key-Value를 가지고 있어 record마다 다른 스키마를 가질 수 있습니다.
+스키마가 프리하다는것은 Document Store랑 비슷하나 기본적인 구현은 많이 다릅니다.
+record면에서는 RDB와 많은점에서 유사하며 더욱 대량 분산처리에 용이합니다.
+많은 컬럼과 많은 데이터를 저장해야할때 유용하며 scan에는 (상대적으로) 그다지 좋지 않습니다.
+
+대표DB : [Cassandra](http://cassandra.apache.org/), [HBase](https://hbase.apache.org/), Google BigTable
+
+## Key-Value Store
+
+<img src="http://upload.wikimedia.org/wikipedia/commons/5/5b/KeyValue.PNG"/><br/>
+Key와 Value로 이루어진 심플한 구조의 저장 스토어입니다. 
+이런 심플한 구조를 사용하는 이유는 속도가 빠르며 분산 저장환경에 용이하기 때문입니다.
+주로 빠른 억세스를 위해 메모리를 베이스로 사용합니다.
+wide column과 마찬가지로 억세스 속도는 매우 빠르나 scan에는 취약한 모습을 보여줍니다.
+
+
+대표DB : [Redis](https://redis.io/), [Memcached](https://memcached.org/), [EhCache](http://www.ehcache.org/), [Hazelcast](https://hazelcast.org/)
+
+## SearchEngine
+대량의 데이터와 텍스트 컨텐츠를 빠르게 검색하기 위한 저장 스토어입니다.
+텍스트를 토크나이징 하여 색인을 하며 일반적으로 텍스트 검색 뿐만아니라
+Ranking, Grouping, Aggregation, Geolocation 거리 계산등의 기능들도 같이 제공되고 있습니다.
+
+
+대표DB : [Lucene](https://lucene.apache.org/core/), [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Solr](http://lucene.apache.org/solr/), [sphinxsearch](http://sphinxsearch.com/)
+
+## Graph DBMS
+
+<img src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/GraphDatabase_PropertyGraph.png/308px-GraphDatabase_PropertyGraph.png"/><br/>
+그래프 DBMS는 데이터를 노드로 표현하며 노드 사이의 관계를 edge로 표현합니다. 
+데이터와 데이터간의 관계를 표기할 수 있다고 보는편이 편할것 같습니다.
+이런 구조는 마치 페이스북의 친구찾기나 연관 데이터 추천등의 데이터를 저장하는데 용이합니다.
+(이런 저장소가 추천을 알아서 해주는 것은 아닙니다)
+
+대표DB : [Neo4J](https://neo4j.com/product/), [OrientDB](http://orientdb.com/orientdb/)
+
+## Time Series DBMS
+
+시계열(Time Series)를 처리하기 위해 최적화된 데이터 베이스입니다. 
+주식거래 같은 시간 단위의 데이터를 처리하고 그래프를 그리는데 매우 용이합니다.
+주로 대량의 시계열 데이터를 수집하거나 쿼리할 수 있게 설계 되었습니다
+
+대표DB : [InfluxDB](https://www.influxdata.com/products/), [RRDtool](https://oss.oetiker.ch/rrdtool/), [Graphite](https://github.com/graphite-project/graphite-web)
+
+## 마치며
+꼭 NoSql을 모두 알고 있어야 하고 무조건 이것을 써야한다는 것은 아닙니다. 
+하지만 서비스가 거대해지다 보면 기존의 RDBMS에 모든것을 맡겨버리기엔 한계가 있을것입니다. (DB가 터져나갑니다)
+
+자신의 어플리케이션의 서비스 특성에 맞는 NoSql 분산 설계를 하면 훨씬 견고하고 안전한 서비스가 될것입니다.
