@@ -28,7 +28,7 @@ DL4J는 이름에서도 알수있다시피 자바용 딥러닝 라이브러리�
 추출은 그냥 단순하게 DB에서 select 한 title을 plain text파일로 그냥 쭉 저장했습니다.<br/>
 약 작업하고 나서 보니 970만건 정도 데이터로 다음 작업을 진행했습니다.<br/>
 
-{% highlight java %}
+```java
 // Strip white space before and after for each line
 SentenceIterator iter = new BasicLineIterator(filePath);
 // Split on white spaces in the line to get words
@@ -67,7 +67,7 @@ vec.fit();
 //        log.info("Closest words to 'day' on 1st run: " + lst);
 
 WordVectorSerializer.writeFullModel(vec, OUTPUT_SAVE_MODEL);
-{% endhighlight %}
+```
 
 우선 저는 딥러닝 기술에 대해 잘 알지 못하니 Document페이지의 예제대로 우선 따라 써보았습니다.<br/>
 학습 방법은 매우 심플합니다. `BasicLineIterator`를 이용하면<br/> 

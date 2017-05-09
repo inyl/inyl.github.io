@@ -44,16 +44,16 @@ Circuit Breaker(차단기)라는 개념인데 특정 횟수만큼의 커넥션 �
 우선 common lang최신버전을 프로젝트에 import한다. 2016년 10월 17일에 릴리즈된 `3.5`버전에 Curcuit Breaker가 따끈따끈하게 추가되었다.<br/>
 우선 프로젝트에 3.5버전을 추가하자.<br/>
 
-{% highlight xml %}
+```xml
 <dependency>
   <groupId>org.apache.commons</groupId>
   <artifactId>commons-lang3</artifactId>
   <version>3.5</version>
 </dependency>
-{% endhighlight %}
+```
 
 다음 예제를 보자.<br/>
-{% highlight java %}
+```java
  EventCountCircuitBreaker breaker = new EventCountCircuitBreaker(5, 2, TimeUnit.MINUTE, 5, 10, TimeUnit.MINUTE);
  ...
  public void handleRequest(Request request) {
@@ -67,7 +67,7 @@ Circuit Breaker(차단기)라는 개념인데 특정 횟수만큼의 커넥션 �
          // return an error code, use an alternative service, etc.
      }
  }
-{% endhighlight %}
+```
 
 해당 예제는 리퀘스트가 오면 <b>breaker.checkState()</b> 로 해당 서비스에 접근해도 되는지를 판단후에 괜찮으면 service.doSomething()메서드를 실행시킨다.<br/>
 만일 해당 서비스에 문제가 있다면 <b>breaker.incrementAndCheckState();</b>로 Curcuit Breaker의 오류 카운트를 증가 시킨다.<br/>
@@ -76,7 +76,7 @@ Circuit Breaker(차단기)라는 개념인데 특정 횟수만큼의 커넥션 �
 그리고 이렇게 닫힌 Curcuit은 <span style="color:red">10</span>분동안 유지된다.<br/>
 
 만일 단순히 리퀘스트 횟수만을 참조하고 싶다면 이런식으로 설정할 수 있다.<br/>
-{% highlight java %} 
+```java 
  EventCountCircuitBreaker breaker = new EventCountCircuitBreaker(1000, 1, TimeUnit.MINUTE, 800);
  ...
  public void handleRequest(Request request) {
@@ -86,7 +86,7 @@ Circuit Breaker(차단기)라는 개념인데 특정 횟수만큼의 커넥션 �
          // do something else, e.g. send an error code
      }
  }
- {% endhighlight %}
+```
  
 해당 예제는 만일 1분에 <b>1000</b>건이 넘는 리퀘스트가 온경우Curcuit을 닫아버린다. 이경우 else절에서 사용자에게 에러메시지를 전송하면 된다.<br/>
 그리고 <b>800</b>건 이하로 리퀘스트가 줄어들면 다시 curcuit이 오픈된다.<br/>

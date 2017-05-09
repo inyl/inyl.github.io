@@ -64,13 +64,13 @@ comment : true
 프로그래밍 적으로 설명하자면 x와 y값 두개를 전달하는 방법입니다<br/>
 더 간단하게 설명하면 파라미터가 두개 있는 함수라고 생각하면 됩니다<br/>
 [scikit-learn random forest 예제 링크](http://scikit-learn.org/stable/modules/ensemble.html#forest)를 봐보겠습니다.
-{% highlight python %}
+```python
 from sklearn.ensemble import RandomForestClassifier
 X = [[0, 0], [1, 1]]
 Y = [0, 1]
 clf = RandomForestClassifier(n_estimators=10)
 clf = clf.fit(X, Y)
-{% endhighlight %}
+```
 
 예제 소스코드를 보시면 x와 y를 fit함수에 두개를 넘기죠? 이게 지도학습 입니다.
 <s>(미리 경고했지 않습니까 겁나 쌈마이 스럽다고..!)</s><br/>
@@ -79,13 +79,13 @@ clf = clf.fit(X, Y)
 컴퓨터에게 정답을 알려주지 못하는 상황에서 데이터만 보고 컴퓨터가 그룹을 군집화해주는 학습방식입니다.
 간단하게 정답이 없으면 비지도 학습입니다.
 이번에도 [scikit-learn K-means 예제 링크](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)를 봐보죠
-{% highlight python %}
+```python
 from sklearn.cluster import KMeans
 import numpy as np
 X = np.array([[1, 2], [1, 4], [1, 0],
                [4, 2], [4, 4], [4, 0]])
 kmeans = KMeans(n_clusters=2, random_state=0).fit(X)
-{% endhighlight %}
+```
 위의 random-forest예제와 매우 유사하나 마지막을 보면 fit method에 (X) 한개!!밖에 전달을 안하네요.<br/>
 그럼 정답이 없는데 데이터를 어떻게 예측할 수 있나가 궁금해질것입니다<br/>
 
@@ -124,9 +124,9 @@ tensorflow 가이드에서도 이런식으로 작성되어있습니다.
 주로 X (input_data)에 곱해주는값(W)와 더해주는값(b)를 설정합니다.<br/>
 
 다음은 텐서플로우 예제인데
-{% highlight python %}
+```python
 y = tf.nn.softmax(tf.matmul(x, W) + b)
-{% endhighlight%}
+```
 
 자세히 보면 **x**라는 값과 **W**를 곱해준뒤(multiply) **b**라는 값을 더해준걸 **y**라는 변수에 넣는것을 알 수 있습니다<br/>
 tf.matmul (matrix multiply)은 array와 array를 곱하기 위해서 사용하는 tensorflow의 method라고 생각하시면 됩니다<br/>

@@ -35,7 +35,7 @@ mac os의 경우 ruby가 기본적으로 설치되어있어 바로 커맨드를 
 ## config설정
 설정이 제대로 되었다면 폴더안에 `_config.yml`파일이 생성되었을텐데 사이트의 기본 설정값이 저장 되어있습니다.<br/>
 
-{% highlight yml %}
+```yml
 title: #사이트 명
 email: #자신의 이메일
 description: > # 자신의 사이트 설명. 주로 copyright
@@ -43,7 +43,8 @@ description: > # 자신의 사이트 설명. 주로 copyright
 url: "https://inyl.github.io/" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
 github_username:  #자신의 github id
-{% endhighlight %}
+
+```
 적당히 변경할 만한 값은 이정도 인데<br/>
 이곳에 자신이 custom하게 변수를 설정할 수도 있습니다.<br/>
 

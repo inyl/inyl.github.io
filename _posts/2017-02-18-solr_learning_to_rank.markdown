@@ -22,7 +22,7 @@ Solr Wiki의 예제를 따라가보자. 솔라 최신버전을 받고 압축을 
 `bin/solr start -e techproducts -Dsolr.ltr.enabled=true`<br/>
 기동이 성공적으로 되면 예제로 주어지는 techproducts볼륨도 함께 만들어지면서 기동된것을 확인할 수 있다. 다음 메시지가 뜨면 기동에 성공한것이다.<br/>
 
-{% highlight shell %}
+```shell
 SimplePostTool version 5.0.0
 Posting files to [base] url http://localhost:8983/solr/techproducts/update using content-type application/xml...
 POSTing file gb18030-example.xml to [base]
@@ -42,10 +42,10 @@ POSTing file vidcard.xml to [base]
 14 files indexed.
 COMMITting Solr index changes to http://localhost:8983/solr/techproducts/update...
 Time spent: 0:00:00.788
-{% endhighlight %}
+```
 
 그 다음 json파일을 작성한다. 파일이름은 `myFeatures.json`이다
-{% highlight json %}
+```json
 [{
   "name": "documentRecency",
   "class": "org.apache.solr.ltr.feature.SolrFeature",
@@ -63,14 +63,14 @@ Time spent: 0:00:00.788
   "class": "org.apache.solr.ltr.feature.OriginalScoreFeature",
   "params": {}
 }]
-{% endhighlight %}
+```
 
 작성한 파일을 solr에 feature로 넘겨주자<br/>
 `curl -XPUT 'http://localhost:8983/solr/techproducts/schema/feature-store' --data-binary '@/path/to/myFeatures.json' -H 'Content-type:application/json'`<br/>
 만일 json syntax오류가 발생한다면 이 블로그에서 markdown -> html을 만들때 이상한 코드가 들어가서 그런거일 수 있으니 천천히 타이핑 해서 잘 만들어보자(--;;)
 
 `http://localhost:8983/solr/techproducts/schema/feature-store/_DEFAULT_`로 접속해서 다음과 같이 추가한 피쳐들이 조회되면 성공이다.
-{% highlight json %}
+```json
 {
   "responseHeader":{
     "status":0,
@@ -90,11 +90,11 @@ Time spent: 0:00:00.788
       "class":"org.apache.solr.ltr.feature.OriginalScoreFeature",
       "params":null,
       "store":"_DEFAULT_"}]}
-{% endhighlight %}
+```
 적용시킬 스코어를 document의 쿼리 조건에 따라 적용할 수 있는것으로 판단된다.<br/>
 
 이제는 model을 만들어야 한다. 적용하는 feature의 가중치(weight)를 설정하는것으로 판단된다. `myModel.json`으로 저장한다.
-{% highlight json %}
+```json
 {
   "class" : "org.apache.solr.ltr.model.LinearModel",
   "name" : "myModel",
@@ -111,13 +111,13 @@ Time spent: 0:00:00.788
     }
   }
 }
-{% endhighlight %}
+```
 
 저장한 json파일을 solr에 다시 넣어준다.<br/>
 `curl -XPUT 'http://localhost:8983/solr/techproducts/schema/model-store' --data-binary "@/path/myModel.json" -H 'Content-type:application/json'`<br/>
 
 `http://localhost:8983/solr/techproducts/schema/model-store`로 접속되서 잘 학습되었는지 확인한다. 다음과 같은 response가 나오면 성공이다.<br/>
-{% highlight json %}
+```json
 {
   "responseHeader":{
     "status":0,
@@ -139,13 +139,13 @@ Time spent: 0:00:00.788
           "documentRecency":1.0,
           "isBook":0.1,
           "originalScore":0.5}}}]}
-{% endhighlight %}
+```
 여기서 설정한 "name":"myModel" 값과 weights를 조절하여 여러벌의 모델을 만들어서 A/B 테스트처럼 진행도 가능하다.
 
 학습시킨 피쳐는 쿼리의 fl= 파라미터에 `[features]`를 추가해서 확인할 수 있고 학습시킨 feature는 solr에 기존에 있었던 re-rank쿼리를 이용해서 사용한다.<br/>
 스코어를 한 번 유심히 봐보자<br/>
 `http://localhost:8983/solr/techproducts/query?q=test&fl=id,score,[features]`
-{% highlight json %}
+```json
 {
   "responseHeader":{
     "status":0,
@@ -163,11 +163,11 @@ Time spent: 0:00:00.788
         "score":1.5513437,
         "[features]":"documentRecency=0.020832444,isBook=0.0,originalScore=1.5513437"}]
   }}
-{% endhighlight %}
+```
 
 다음은 re-rank를 적용한 쿼리이다. model json파일에서 사용한 이름이 여기서 model=을 지정할때 사용된다.<br/>
 `http://localhost:8983/solr/techproducts/query?q=test&rq={!ltr model=myModel reRankDocs=100}&fl=id,score,[features]`
-{% highlight json %}
+```json
 {
   "responseHeader":{
     "status":0,
@@ -186,7 +186,7 @@ Time spent: 0:00:00.788
         "score":0.7965043,
         "[features]":"documentRecency=0.020832442,isBook=0.0,originalScore=1.5513437"}]
   }}
-{% endhighlight %}
+```
 
 feature가 적용되어 스코어에 변동이 생긴것을 확인할 수 있다.<br/>
 예제에서 검색된 두개의 문서는 카테고리필드(cat)에 book에 해당하는 것은 없어 isBook feature에는 스코어가 적용되지 않고 documentRecency필드로만 가중치가 적용된것으로 보여진다.<br/>
