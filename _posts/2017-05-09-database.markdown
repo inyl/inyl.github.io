@@ -2,12 +2,13 @@
 layout: post
 category: programming
 tags: [database, nosql]
-title:  "Database의 종류"
+title:  "Database & NoSql의 종류"
 comment : true
 ---
 NoSql이 생겨나면서 우리는 RDB보다 더 많은 선택을 할 수 있습니다. 
 각 저장소의 장단점을 알고 상황에 맞는 선택을 하면 한결 편한 개발과 견고한 어플리케이션을 개발하는데 도움이 될것입니다.
-그럼 Database의 종류와 장단점을 간략하게 알아보도록 하겠습니다.
+그럼 Database의 종류와 장단점을 아주아주~ 간략하게 알아보도록 하겠습니다. <i class="fa fa-smile-o fa-spin" aria-hidden="true"></i>
+
 
 ## Relation DBMS
 
