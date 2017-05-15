@@ -1,7 +1,7 @@
 ---
 layout: post
 category: programming
-tags: [java, stream]
+tags: [webpack, babel]
 title:  "webpack2 babel로 브라우저 호환성 설정하기"
 comment : true
 ---
