@@ -6,9 +6,7 @@ layout: default
   <h1 class="page-heading">Posts</h1>
 
   <ul class="post-list">
-    {% for post in paginator.posts %}
       {% include item.html %}
-    {% endfor %}
   </ul>
   <!-- Pagination links -->
   {% if paginator.total_pages > 1 %}
