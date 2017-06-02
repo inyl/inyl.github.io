@@ -1,0 +1,10 @@
+<header>
+    <div class="title">
+        <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h2>
+        <!--<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>-->
+    </div>
+    <div class="meta">
+        <time class="published" datetime="{{post.date}}">{{ post.date | date: "%F %a" }}</time>
+        <!--<a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>-->
+    </div>
+</header>
