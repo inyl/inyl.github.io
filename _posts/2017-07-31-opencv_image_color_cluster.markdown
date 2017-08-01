@@ -120,5 +120,7 @@ plt.show()
 
 ```
 
+실제 돌아가는 코드는 [깃헙 노트북 링크](https://github.com/inyl/my_notebook/blob/master/open_cv/image_color_cluster.ipynb)
+에서 확인하실 수 있습니다.
 
 해당 포스팅은 [pyimagesearch](http://www.pyimagesearch.com/2014/05/26/opencv-python-k-means-color-clustering/)의 블로그를 참고하여 작성하였습니다.(너무 배꼈다...반성 반성)
