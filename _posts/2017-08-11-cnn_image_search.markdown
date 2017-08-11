@@ -2,13 +2,15 @@
 layout: post
 category: programming
 tags: [opencv]
-title:  "딥러닝 CNN으로 이미지 검색 만들"
+title:  "딥러닝 CNN으로 이미지 검색 만들기"
 comment : true
 ---
 기존 이미지 검색은 CBIR(content based image retrieval) 기반의 이미지 검색으로 처리하였습니다. 
 오픈소스로는 lucene기반의 [LIRE(Lucene Image REtrieval)](http://www.semanticmetadata.net/lire/)이 있고 이걸 elasticsearch에 플러그인형식으로 올린 버전도 있습니다. 
-[elastic search blog](https://www.elastic.co/blog/found-getting-started-with-lire-and-elasticsearch) 에도 포스팅이 옛날에 한 번 올라왔었죠~.
-이 방식도 histogram 이나 color layout등 여러 방식을 사용하지만 elasticsearch blog를 보시면 아시겠지만 비슷한 느낌의 이미지를 찾는다 보다는 
+[elastic search blog](https://www.elastic.co/blog/found-getting-started-with-lire-and-elasticsearch) 에도 포스팅이 옛날에 한 번 올라왔었죠~
+
+이 방식도 histogram 이나 color layout등 여러 다양한 방식을 사용하지만 
+elasticsearch blog를 보시면 아시겠지만 비슷한 느낌의 이미지를 찾는다 보다는 
 비슷한 색상의 이미지를 찾는다 라는 느낌이 더 강합니다. 
 사람이 보기에 완전히 다른 이미지여도 색상만 얼추 비슷하면 결과로 뽑히는것이죠.
 
@@ -83,7 +85,7 @@ from os.path import isfile, join
 checkpoint_dir = "/data/dev/inception-v3"
 batch_size = 100
 ```
-checkpoint_dir은 아까 다운받았던 weight파일이 있는 주소고 batch_size는 한번에 이미지를 몇개를 프로세싱할건지의 수치입니다.
+checkpoint_dir은 아까 다운받았던 weight파일이 있는 주소고 batch_size는 한꺼번에 몇개의 이미지를 프로세싱할건지의 수치입니다.
 
 ```python
 my_image_path = "/data/dev/pets/images/"
@@ -92,7 +94,7 @@ file_size = len(img_file_list)
 ```
 
 my_image_path는 다운받은 옥스포드 펫 이미지의 경로이고
-이 폴더를 스캔해서 arraylist로 만들어줍니다.
+이 폴더를 스캔해서 list로 만들어줍니다.
 
 ```python
 def inference_on_multi_image():
@@ -169,11 +171,11 @@ def print_image(path):
 ```
 
 이미지 목록중 아무거나 꺼내와봅시다. 999번째 이미지로 테스트 해봅니다.
-이렇게 생긴 비글 이미지입니다.
+이렇게 생긴 비글 이미지네요.
 
 ![]({{site.url}}assets/imgs/image_search/image_search1.png)
 
-999번째 인덱스의 이미지랑 근거리에 있는 애들을 찾아보겠습니다.
+999번째 인덱스의 이미지랑 근접한 있는 이웃들을 찾아보겠습니다.
 ```python
 predict = knn.kneighbors(logit_list[999], return_distance=False)
 print predict
@@ -187,12 +189,13 @@ show_image(predict[0])
 ```
 ![]({{site.url}}assets/imgs/image_search/image_search2.png)
 
-여러 비글 이미지가 찾아졌습니다! 여러 다양한 품종의 개와 고양이가 있으나 가장 유사한 이미지로 비글들만 찾아졌습니다.
+여러 비글 이미지가 찾아졌습니다! 여러 다양한 품종의 개와 고양이가 다같이 데이터를 넣었으나 가장 유사한 이미지로 비글들만 찾아졌습니다.
 그리고 색상에 영향을 많이 받은것 같았던 CBIR과는 다르게 배경이나 모양이 많이 다르더라도 이미지의 feature를 제대로 찾아준다는 느낌을 받을 수 있습니다.
 
 
 그럼 혹시 이게 잘 구분된 학습시킨 이미지라 잘나오는게 아닌가 생각할 수 있습니다.
 아무 이미지나 넣어보겠습니다.
+
 ![]({{site.url}}assets/imgs/image_search/image_search3.png)
 
 고양이가 이미지내에 있긴 하지만 고양이 사이즈가 작고 사료등의 이미지랑 같이 섞여있습니다.
@@ -201,6 +204,7 @@ show_image(predict[0])
 ![]({{site.url}}assets/imgs/image_search/image_search4.png)
 
 다른이미지도 역시 잘 찾습니다.
+
 ![]({{site.url}}assets/imgs/image_search/image_search5.png)
 
 실제로 해당 소스를 돌린 notebook은 [깃헙링크](https://github.com/inyl/my_notebook/blob/master/machine_learning/image_search.ipynb)에서 확인 가능합니다.
