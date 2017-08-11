@@ -1,7 +1,7 @@
 ---
 layout: post
 category: programming
-tags: [opencv]
+tags: [tensorflow, cnn]
 title:  "딥러닝 CNN으로 이미지 검색 만들기"
 comment : true
 ---
