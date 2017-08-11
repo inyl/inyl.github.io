@@ -46,16 +46,16 @@ curl -O http://download.tensorflow.org/models/image/imagenet/inception-v3-2016-0
 tar xzf inception-v3-2016-03-01.tar.gz
 ```
 
-그리고 이미지 검색을 만들 이미지 데이터를 다운 받겠습니다. 아무거나 해도 되지만 공개된 이미지 데이터셋인 옥스포드 pet 데이터셋을 받겠습니다.
+그리고 이미지 검색을 만들 이미지 데이터를 다운 받겠습니다. 학습 이미지는 아무거나 상관없지만 공개된 이미지 데이터셋인 옥스포드 pet 데이터셋을 받겠습니다.
 [The Oxford-IIIT Pet Dataset](http://www.robots.ox.ac.uk/~vgg/data/pets/)사이트에 접속해서 Downloads항목의 dataset을 다운 받습니다.
 다운받으면 여러 종류의 개와 고양이 이미지들이 약 7천여종정도 있을것입니다. 왜 이 이미지셋을 선택했냐면
 
 <font size="18">귀.여.우.니.깐</font>
 
-뭐 아무튼, 준비물은 된거 같으니 작업을 해보도록 하겠습니다.
+뭐.. 아무튼, 준비물은 된거 같으니 작업을 해보도록 하겠습니다.
 
 ## 설명
-여기서 inception v3의 알고리즘을 설명하긴 어렵기도 하고 구글링 해보면 이미 다른 블로그에 많이 설명이 나오기도 해서 자세히 설명은 안하고 최대한 설명을 축약하자면
+여기서 inception v3의 알고리즘을 모두 설명하긴 어렵기도 하고 구글링 해보면 이미 다른 블로그에 자세히 설명이 나오기도 해서 자세한 설명은 생략하고 간단히만 말하자면
 
 1. n개의 input 이미지를 input으로 준비
 2. 이미지를 (n, 299, 299 3)의 배열로 변환 
@@ -159,6 +159,7 @@ knn.fit(logit_list)
 
 만들었으면 이제 이미지로 실제 제대로 동작하나 테스트 해봐야겠죠.
 우선 함수를 두개 만들고요
+
 ```python
 def show_image(predictions):
     for i in predictions:
@@ -194,7 +195,7 @@ show_image(predict[0])
 
 
 그럼 혹시 이게 잘 구분된 학습시킨 이미지라 잘나오는게 아닌가 생각할 수 있습니다.
-아무 이미지나 넣어보겠습니다.
+아무 고양이 이미지나 구해서 넣어보겠습니다.
 
 ![]({{site.url}}assets/imgs/image_search/image_search3.png)
 
@@ -203,7 +204,7 @@ show_image(predict[0])
 
 ![]({{site.url}}assets/imgs/image_search/image_search4.png)
 
-다른이미지도 역시 잘 찾습니다.
+다른 고양이 이미지도 역시 잘 찾습니다.
 
 ![]({{site.url}}assets/imgs/image_search/image_search5.png)
 
@@ -211,7 +212,7 @@ show_image(predict[0])
 
 ## 마치며
 
-물론 이 상태로 그대로 production레벨에 쓰기는 당연히 많이 부족합니다.
+물론 아직은 그대로 production레벨에 쓰기는 당연히 많이 부족합니다.
 성능 문제도 있고 지금처럼 잘 분류된 펫이미지가 아닌 무작위의 이미지라면 어떻게 될지 모르겠네요. 
 
 좀더 로직을 보안하고 여기에 추가로 결과를 좀 더 보정할 수 있는 알고리즘을 더 섞어보다면 재미있는 결과가 나올것 같습니다.
