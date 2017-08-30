@@ -16,7 +16,7 @@
 title: inyl labs
 email: indurluv@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  © 2016 inyl.
+  © 2016-2017 inyl.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://inyl.github.io/" # the base hostname & protocol for your site
 tagline: Web Developer
