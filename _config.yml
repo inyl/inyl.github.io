@@ -52,3 +52,109 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - README.md
+
+recommend:
+  /programming/2017/08/30/dynamo_ttl:
+    - /devops/2016/08/20/devops
+    - /programming/2017/08/25/mac_crontab
+    - /2016/08/20/테스트
+  /programming/2017/04/19/tuple:
+    - /devops/2016/08/20/devops
+    - /github/2017/01/21/github_newsletter
+    - /search_engine/2017/04/18/bm25_2
+  /programming/2016/10/15/JHipster:
+    - /programming/2016/10/22/macos_git
+    - /programming/2017/08/25/mac_crontab
+    - /github/2017/01/21/github_newsletter
+  /programming/2017/02/04/circuit_breaker:
+    - /github/2017/01/21/github_newsletter
+    - /devops/2016/08/20/devops
+    - /seminar/2016/11/12/hanbit_2016
+  /machine_leaning/2016/12/31/ML_for_give_up_on_math_1:
+    - /devops/2016/08/20/devops
+    - /seminar/2016/11/12/hanbit_2016
+    - /programming/2017/07/31/opencv_image_color_cluster
+  /devops/2016/08/20/devops:
+    - /programming/2017/08/30/dynamo_ttl
+    - /programming/2017/08/25/mac_crontab
+    - /github/2017/01/21/github_newsletter
+  /search_engine/2017/02/18/solr_learning_to_rank:
+    - /programming/2016/10/22/macos_git
+    - /programming/2017/08/25/mac_crontab
+    - /github/2017/01/21/github_newsletter
+  /programming/2017/05/05/slf4j:
+    - /devops/2016/08/20/devops
+    - /github/2017/01/21/github_newsletter
+    - /programming/2017/05/11/java_stream
+  /book/2017/04/25/book_review_1:
+    - /seminar/2016/11/12/hanbit_2016
+    - /github/2017/01/21/github_newsletter
+    - /search_engine/2017/05/01/tkt_elasticsearch
+  /programming/2017/05/11/java_stream:
+    - /devops/2016/08/20/devops
+    - /programming/2017/08/30/dynamo_ttl
+    - /programming/2017/05/09/database
+  /machine_leaning/2016/10/01/dl4j_word2vec_exam:
+    - /2016/08/20/테스트
+    - /github/2017/01/21/github_newsletter
+    - /devops/2016/08/20/devops
+  /programming/2017/05/15/webpack2_babel:
+    - /programming/2017/08/25/mac_crontab
+    - /programming/2017/08/30/dynamo_ttl
+    - /search_engine/2017/05/01/tkt_elasticsearch
+  /search_engine/2017/04/01/bm25:
+    - /search_engine/2017/04/18/bm25_2
+    - /devops/2016/08/20/devops
+    - /search_engine/2017/05/01/tkt_elasticsearch
+  /seminar/2016/11/12/hanbit_2016:
+    - /book/2017/04/25/book_review_1
+    - /programming/2016/10/22/macos_git
+    - /github/2017/01/21/github_newsletter
+  /programming/2017/08/11/cnn_image_search:
+    - /programming/2017/07/31/opencv_image_color_cluster
+    - /machine_learning/2017/03/04/think_tensorflow
+    - /search_engine/2017/05/01/tkt_elasticsearch
+  /github/2017/01/21/github_newsletter:
+    - /2016/08/20/테스트
+    - /search_engine/2017/05/01/tkt_elasticsearch
+    - /programming/2016/10/22/macos_git
+  /programming/2017/08/25/mac_crontab:
+    - /programming/2016/10/22/macos_git
+    - /github/2017/01/21/github_newsletter
+    - /search_engine/2017/05/01/tkt_elasticsearch
+  /programming/2016/10/22/macos_git:
+    - /programming/2017/08/25/mac_crontab
+    - /github/2017/01/21/github_newsletter
+    - /search_engine/2017/05/01/tkt_elasticsearch
+  /programming/2017/07/31/opencv_image_color_cluster:
+    - /programming/2017/08/11/cnn_image_search
+    - /programming/2017/08/30/dynamo_ttl
+    - /devops/2016/08/20/devops
+  /programming/2017/06/03/lucene_index_type:
+    - /devops/2016/08/20/devops
+    - /programming/2017/08/25/mac_crontab
+    - /programming/2017/08/30/dynamo_ttl
+  /2016/08/20/테스트:
+    - /search_engine/2017/05/01/tkt_elasticsearch
+    - /github/2017/01/21/github_newsletter
+    - /blog/2016/08/28/jekyll_github_page
+  /search_engine/2017/05/01/tkt_elasticsearch:
+    - /2016/08/20/테스트
+    - /github/2017/01/21/github_newsletter
+    - /programming/2016/10/22/macos_git
+  /blog/2016/08/28/jekyll_github_page:
+    - /search_engine/2017/05/01/tkt_elasticsearch
+    - /programming/2016/10/22/macos_git
+    - /2016/08/20/테스트
+  /machine_learning/2017/03/04/think_tensorflow:
+    - /programming/2017/08/25/mac_crontab
+    - /programming/2017/08/11/cnn_image_search
+    - /programming/2016/10/22/macos_git
+  /search_engine/2017/04/18/bm25_2:
+    - /search_engine/2017/04/01/bm25
+    - /devops/2016/08/20/devops
+    - /github/2017/01/21/github_newsletter
+  /programming/2017/05/09/database:
+    - /devops/2016/08/20/devops
+    - /github/2017/01/21/github_newsletter
+    - /programming/2016/10/22/macos_git
