@@ -332,7 +332,7 @@ p {
 }
 
 .post-list li {
-  border-bottom : 0px solid #efefef;
+  border-bottom : 1px solid #efefef;
   padding: 17px 15px;
   position: relative;
 }
