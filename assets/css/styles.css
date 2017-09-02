@@ -331,3 +331,12 @@ p {
   text-align: center;
 }
 
+.post-list li {
+  border-bottom : 0px solid #efefef;
+  padding: 17px 15px;
+  position: relative;
+}
+
+.post-list li:last-child {
+  border-bottom: 0px;
+}
