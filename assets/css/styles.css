@@ -340,3 +340,7 @@ p {
 .post-list li:last-child {
   border-bottom: 0px;
 }
+
+.post-list img {
+  max-width: 100%;
+}
