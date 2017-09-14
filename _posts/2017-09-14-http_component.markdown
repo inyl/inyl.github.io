@@ -7,14 +7,14 @@ comment : true
 ---
 Java 어플리케이션에서 일반적으로 http호출을 할때 Apache HttpClient를 사용하며 http client가 버전업을 하여
 Apache HttpComponent로 변경된것은 아마 다들 알고있는 사항일것입니다. (아주 옛날에 바꼈으니까)
-근데 문제는 이 HttpComponent가 단순한 버전업이 아니라 내부 아키텍쳐가 아예 변경 되었음에도 불구하고 기존과 같은
-사용방식을 하고 있는 케이스가 많아 (물론 기존처럼 써도 돌아는 갑니다만) 글을 정리해 보겠습니다.
+근데 문제는 이 HttpComponent가 단순한 버전업이 아니라 내부 아키텍쳐가 아예 변경 되었음에도 불구하고 기존버전과
+비슷하게 쓰고있는 케이스가 많은것같아(물론 기존처럼 써도 돌아는 갑니다만) 글을 정리해 보겠습니다.
 
 
 ## 무엇이 바뀌었나
 기존의 간단한 HttpClient와는 다르게 여러 더 세부적인 옵션들을 Builder로 설정할 수 있습니다.
 쿠키, 권한, dns, socket, redirect 전략등 여러 세부 설정을 할 수 있게 변경되었으며 이때문에 기존보다 좀 사용하는
-코드가 복잡해지긴 했지만 더 로우레벨에 여러가지 http 호출을 생성하는게 가능해졌습니다.
+코드가 복잡해지긴 했지만 더 로우레벨의 http 호출을 생성하는게 가능 해졌습니다.
 
 ## 왜 Component인가
 
@@ -54,7 +54,7 @@ final PoolingHttpClientConnectionManager poolingmgr = new PoolingHttpClientConne
     connTimeToLive,
     connTimeToLiveTimeUnit != null ? connTimeToLiveTimeUnit : TimeUnit.MILLISECONDS);
 ```
-내부에서 `PoolingHttpClientConnectionManager`를 생성하는것을 알 수 있는데 즉 HttpComponent의 default는
+내부에서 `PoolingHttpClientConnectionManager`를 생성하는것을 알 수 있는데 즉 HttpComponent의 default connection manager는
 Connection Pool로 이루어진것을 알 수 있습니다.
 
 `createDefault`말고도 작은 사이즈의 Client를 만드는 `createMinimal` method 소스를 봐도 Pooling Manager를 사용하는것을 알 수 있습니다.
