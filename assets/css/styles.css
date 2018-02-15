@@ -344,3 +344,8 @@ p {
 article img {
   max-width: 100%;
 }
+
+article img.book {
+  max-width: 150px; !important;
+  display: block;
+}
