@@ -4,6 +4,7 @@ category: programming
 tags: [java, logger]
 title:  "slf4j를 사용해야 하는 이유"
 comment : true
+thumbnail : https://www.slf4j.org/images/logos/slf4j-logo.jpg
 ---
 
 java진영에는 무수히 많은 로깅관련 모듈이 존재합니다. <br/>
