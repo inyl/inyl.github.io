@@ -2,64 +2,37 @@
 layout: default
 ---
 {% assign post = page %}
-<div id="navbar">
-    <h4><i class="fa fa-angle-double-left" aria-hidden="true"></i>
-        <a id="link-back" href="/">Main</a></h4>
-</div>
-
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
-        <p class="post-meta">
-            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%F %a"
-                }}
-            </time>
-            {% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span
-                itemprop="name">{{ page.author }}</span></span>{% endif %}
-        </p>
-        {% if post.tags.size > 0 %}
-        <p id="post-meta">
-            Posted with {% if post.tags.size == 1 %}<i class="fa fa-tag"></i>{% else %}<i class="fa fa-tags"></i>{%
-            endif %}:
-            {% for post_tag in post.tags %}
-            <a href="/tags/{{ post_tag }}">{{ post_tag }}</a>
-            {% endfor %}
-
-        </p>
-        {% endif %}
-    </header>
-
-    <div class="post-content" itemprop="articleBody">
-        {{ content }}
-    </div>
-    <hr/>
-    <div class="PageNavigation">
+    {% include article-header.html %}
+    <section>
+        {{content}}
+    </section>
+    <div class="row page_navigation">
         {% if page.previous.url %}
-        <a class="prev" href="{{page.previous.url}}"><i class="fa fa-angle-double-left" aria-hidden="true"></i> {{page.previous.title}}</a>
+
+        <a class="prev pull-left" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
         {% endif %}
         {% if page.next.url %}
-        <a class="next" href="{{page.next.url}}">{{page.next.title}} <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+        <a class="next pull-right" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
         {% endif %}
     </div>
-    <hr/>
-    <div>
+    <div class="row">
+        <div class="12u 12u$(medium)">
         <h4>연관 포스트</h4>
-        <ul class="list-unstyled">
-
+        <ul >
             {% for sub in site.recommend[page.id] %}
-                {% for p in site.posts %}
-                    {% if p.id == sub %}
-                    <li>
-                        <a href="{{p.url}}"><i class="fa fa-angle-right" aria-hidden="true"></i> {{p.title}}</a></li>
-                    {% endif %}
-                {% endfor %}
+            {% for p in site.posts %}
+            {% if p.id == sub %}
+            <li>
+                <a href="{{p.url}}">{{p.title}}</a></li>
+            {% endif %}
+            {% endfor %}
             {% endfor %}
         </ul>
+        </div>
 
     </div>
-    <hr/>
-    <div style="width:700px; height:60px; margin:12px 0 12px 0">
+    <div class="row">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- 기본 -->
         <ins class="adsbygoogle"

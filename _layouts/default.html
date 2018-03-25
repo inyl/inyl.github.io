@@ -1,26 +1,35 @@
 ---
 layout: compress
 ---
-<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 {% include head.html %}
 
 <body>
-    <div class="wrapper">
-        {% include sidebar.html %}
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="/">Dev Imperfect</a></h1>
+        {% include top-menu.html %}
+    </header>
 
-        <div class="main-wrapper">
-           {{content}}
+    {% include menu.html %}
 
-        </div><!--//main-body-->
-
+    <!-- Main -->
+    <div id="main">
+        {{content}}
+        {% include pagination.html %}
     </div>
-
-{% include footer.html %}
- 
+    {% include sidebar.html %}
+</div>
 {% include scripts.html %}
 </body>
-</html> 
+</html>
 

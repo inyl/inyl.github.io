@@ -1,0 +1,20 @@
+<header>
+    <div class="title">
+        <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h2>
+        <!--<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>-->
+    </div>
+    <div class="meta">
+        <time class="published" datetime="{{post.date}}">{{ post.date | date: "%F %a" }}</time>
+        {% if post.tags.size > 0 %}
+        <p id="post-meta">
+            {% if post.tags.size == 1 %}<i class="fa fa-tag"></i>{% else %}<i class="fa fa-tags"></i>{%
+            endif %}:
+            {% for post_tag in post.tags %}
+            <a href="/tags/{{ post_tag }}">{{ post_tag }}</a>
+            {% endfor %}
+
+        </p>
+        {% endif %}
+        <!--<a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>-->
+    </div>
+</header>
