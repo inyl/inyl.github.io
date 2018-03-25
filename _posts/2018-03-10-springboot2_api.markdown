@@ -4,6 +4,7 @@ category: programming
 tags: [java, spring]
 title:  "Spring boot2로 Reactive Webflux API 만들기 1"
 comment : true
+thumbnail: https://source.unsplash.com/AfKyYsE9j6w/846x343
 ---
 Spring boot2 GA출시 기념으로 Webflux 기반의 API를 한 번 만들어 보겠습니다.
 
