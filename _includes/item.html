@@ -2,9 +2,7 @@
 <!-- Post -->
 <article class="post">
     {% include article-header.html %}
-    {% if post.thumbnail %}
-    <a href="{{ post.url | prepend: site.baseurl }}" class="image featured"><img src="{{post.thumbnail}}" style="max-height: 300px" alt="" /></a>
-    {% endif %}
+    {% include post_thumb.html %}
     <p>{{ post.content | strip_html | truncatewords:15}}</p>
     <footer>
         <ul class="actions">

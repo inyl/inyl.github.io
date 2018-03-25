@@ -1,0 +1,5 @@
+{% if post.thumbnail %}
+<a href="{{ post.url | prepend: site.baseurl }}" class="image featured"><img src="{{post.thumbnail}}" alt="" /></a>
+{% else %}
+<a href="{{ post.url | prepend: site.baseurl }}" class="image featured" style="max-height: 400px"><img src="https://source.unsplash.com/846x343?computer" alt="" /></a>
+{% endif %}
