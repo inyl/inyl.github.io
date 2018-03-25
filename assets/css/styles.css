@@ -331,3 +331,21 @@ p {
   text-align: center;
 }
 
+.post-list li {
+  border-bottom : 1px solid #efefef;
+  padding: 17px 15px;
+  position: relative;
+}
+
+.post-list li:last-child {
+  border-bottom: 0px;
+}
+
+article img {
+  max-width: 100%;
+}
+
+article img.book {
+  max-width: 150px; !important;
+  display: block;
+}

@@ -1,5 +1,0 @@
----
-layout: post
-title:  "Hello Jekyll!"
----
-jekyll + github page로 블로그 만들기 테스트
