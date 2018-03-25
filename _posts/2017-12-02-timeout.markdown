@@ -4,6 +4,7 @@ category: programming
 tags: [network]
 title:  "Connection timeout과 Read timeout 차이 쉽게 정리"
 comment : true
+thumbnail : https://source.unsplash.com/8hgm6mKK04U/846x343
 ---
 -- 유치함주의 --  
 

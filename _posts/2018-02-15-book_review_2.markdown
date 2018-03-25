@@ -4,6 +4,7 @@ category: book
 tags: [book]
 title:  "심심해서 쓰는 책품평 2"
 comment : true
+thumbnail: https://source.unsplash.com/GnvurwJsKaY/846x343
 ---
 [이전글과]({% post_url 2017-04-25-book_review_1 %}) 마찬가지로 대충대충입니다 가볍게 씁니다.  
 좋은 책은 너무 많네요. 시간과 머리가 한계여서 그렇지.
