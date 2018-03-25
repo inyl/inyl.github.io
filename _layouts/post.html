@@ -7,16 +7,28 @@ layout: default
     <section>
         {{content}}
     </section>
-<!--
-    <div class="PageNavigation">
+    <div class="row page_navigation">
         {% if page.previous.url %}
-        <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+        <a class="prev pull-left" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
         {% endif %}
         {% if page.next.url %}
-        <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+        <a class="next pull-right" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
         {% endif %}
-    </div>-->
-    <div >
+    </div>
+    <div class="row">
+        <h4>연관 포스트</h4>
+        <ul class="list-unstyled">
+            {% for sub in site.recommend[page.id] %}
+            {% for p in site.posts %}
+            {% if p.id == sub %}
+            <li>
+                <a href="{{p.url}}"><i class="fa fa-angle-right" aria-hidden="true"></i> {{p.title}}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="row">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- 기본 -->
         <ins class="adsbygoogle"

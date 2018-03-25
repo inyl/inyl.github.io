@@ -7,7 +7,7 @@
 (function($) {
 
 	skel.breakpoints({
-		xlarge:	'(max-width: 1680px)',
+		xlarge:	'(max-width: 1x680px)',
 		large:	'(max-width: 1280px)',
 		medium:	'(max-width: 980px)',
 		small:	'(max-width: 736px)',
@@ -90,6 +90,10 @@
 
 					if (event.keyCode == 27)
 						$search_input.blur();
+
+					if (event.keyCode == 13) {
+						searchByGoogle(event.target.value);
+					}
 
 				})
 				.on('blur', function() {
