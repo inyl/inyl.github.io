@@ -1,6 +1,6 @@
 {% if paginator.total_pages > 1 %}
 <!-- Pagination -->
-<ul class="actions pagination">
+<ul class="actions pagination flex">
     {% if paginator.previous_page %}
     <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button big previous">Previous Page</a></li>
     {% else %}
